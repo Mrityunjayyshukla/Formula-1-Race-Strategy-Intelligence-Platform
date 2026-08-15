@@ -1,3 +1,4 @@
 # The cache and data files
 f1_ingest_cache/
 f1_parquet_data/
+cache_data/
