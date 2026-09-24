@@ -120,44 +120,66 @@ class Laps(F1):
         self.lap_df['TrackData'] = self.lap_df['TrackData'].str.rstrip("-")
         return self.lap_df
 
+class Telemetry(F1):
+    def __init__(self, tele_df, result_df=None):
+        super().__init__(laps=None, telemetry=tele_df, weather=None, results=result_df)
+
+    # Removing Impossible values
+    def tele_impossible_val(self):
+        self.tele_df['Speed'] = self.tele_df[(self.tele_df['Speed'] >= 0) | (self.tele_df['Speed'] < 400)]
+        self.tele_df['Throttle'] = self.tele_df[(self.tele_df['Throttle'] >= 0) | (self.tele_df['Throttle'] <= 100)]
+        self.tele_df['Brake'] = self.tele_df[(self.tele_df['Brake'].isna()) | (self.tele_df['Brake'].isin([True, False]))]
+        return self.tele_df
+
+    # Synchronize Telemetry Frequency
+    def synch_frequency(self):
+        self.tele_df['Date'] = pd.to_datetime(self.tele_df['Date'])
+        self.tele_df = self.tele_df.set_index('Date')
+        self.tele_df = self.tele_df[~self.tele_df.index.duplicated(keep='first')]
+
+        # Seperate columns by type to apply interpolation rules
+        # - Continous (Speed, throttle, RPM) need linear interpolation
+        # - Discrete (nGear, DRS, Brake) need forward fill
+        continuous_cols = ['Speed', 'RPM', 'Throttle', 'X', 'Y', 'Z']
+        discrete_cols = ['nGear', 'DRS', 'Brake']
+        existing_cont = [col for col in continuous_cols if col in self.tele_df.columns]
+        existing_disc = [col for col in discrete_cols if col in self.tele_df.columns]
+        rule = '100ms'
+        self.tele_df = pd.concat([
+            self.tele_df[existing_cont].resample(rule).mean().interpolate(method='linear'),
+            self.tele_df[existing_disc].resample(rule).ffill()
+        ], axis=1)
+        self.tele_df = self.tele_df.reset_index()
+        return self.tele_df
+
+    # Remove corrupted GPS points
+    def corrupted_GPS(self):
+        self.tele_df = self.tele_df.dropna(subset = ['X','Y'])
+        self.tele_df = self.tele_df[~((self.tele_df['X']==0) & (self.tele_df['Y']==0))]
+        # Filter spatial jumps
+        self.tele_df['DeltaX'] = self.tele_df['X'].diff()
+        self.tele_df['DeltaY'] = self.tele_df['Y'].diff()
+        self.tele_df['DistanceStep'] = np.sqrt(self.tele_df['DeltaX']**2 + self.tele_df['DeltaY']**2)
+        if 'Date' in self.tele_df.columns:
+            parsed_dates = pd.to_datetime(self.tele_df['Date'], errors='coerce')
+            self.tele_df['TimeStep'] = parsed_dates.diff().dt.total_seconds()
+            self.tele_df['TimeStep'] = self.tele_df['TimeStep'].fillna(0.1)
+        else:
+            self.tele_df['TimeStep'] = 0.1
+        max_plausible_speed = 400
+        self.tele_df['ImpliedSpeed'] = np.where(self.tele_df['TimeStep'] > 0, self.tele_df['DistanceStep']/self.tele_df['TimeStep'], 0)
+        self.tele_df = self.tele_df[self.tele_df['ImpliedSpeed'] <= max_plausible_speed]
+        self.tele_df = self.tele_df.drop(columns=['DeltaX', 'DeltaY', 'DistanceStep','TimeStep','ImpliedSpeed'])
+        return self.tele_df
+
+
+
 # folder = "f1_parquet_data/2025/Round_1_Australian_Grand_Prix/R"
 # laps, telemetry, weather, results = load_session_data(folder)
 # session: F1 = F1(laps, telemetry, weather, results)
 # session.fetch_details(session.lap_df, "Laps")
 
 # Telemetry Data Functions
-# Removing impossible values
-def tele_impossible_values(df):
-    # Speed
-    df['Speed'] = df[(df['Speed'] >= 0) | (df['Speed'] < 400)]
-    # Throttle
-    df['Throttle'] = df[(df['Throttle'] >= 0) | (df['Throttle'] <= 100)]
-    # Braking
-    df['Brake'] = df[(df['Brake'].isna()) | (df['Brake'].isin([True, False]))]
-    return df
-
-# Synchronizing Telemetry Frequency
-def synchronize_frequency(df):
-    df['Date'] = pd.to_datetime(df['Date'])
-    df = df.set_index('Date')
-    df = df[~df.index.duplicated(keep='first')]
-
-    # Seperate columns by type to apply interpolation rules
-    # - Continous (Speed, throttle, RPM) need linear interpolation
-    # - Discrete (nGear, DRS, Brake) need forward fill
-    continuous_cols = ['Speed', 'RPM', 'Throttle', 'X', 'Y', 'Z']
-    discrete_cols = ['nGear', 'DRS', 'Brake']
-    existing_cont = [col for col in continuous_cols if col in df.columns]
-    existing_disc = [col for col in discrete_cols if col in df.columns]
-    rule = '100ms'
-    df = pd.concat([
-        df[existing_cont].resample(rule).mean().interpolate(method='linear'),
-        df[existing_disc].resample(rule).ffill()
-    ], axis=1)
-
-    df = df.reset_index()
-    return df
-
 # Remove Corrupted GPS points
 def corrupted_GPS(df):
     df = df.dropna(subset=['X','Y'])
