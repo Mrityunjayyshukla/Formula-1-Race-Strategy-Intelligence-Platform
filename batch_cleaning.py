@@ -1,82 +1,100 @@
 import numpy as np
 import pandas as pd
+import os
 
-# Generalised data functions
-# Getting the necessary information
-def fetch_details(df):
-    print("Number of rows: ", df.shape[0])
-    print("Number of columns: ", df.shape[1])
-    print("Columns: ", df.columns.to_list)
-    print("Duplicated: ", df.duplicated().sum())
-    print("Null: ", df.isna().sum().to_dict())
 
-# Dropping unnecessary columns
-def drop_columns(df, drop_list):
-    df = df.drop(drop_list, axis=1)
-    return df
+def load_session_data(folder_path):
+    lap_df = pd.read_parquet(os.path.join(folder_path, "laps.parquet"))
+    tele_df = pd.read_parquet(os.path.join(folder_path, "telemetry.parquet"))
+    weather_df = pd.read_parquet(os.path.join(folder_path, "weather.parquet"))
+    result_df = pd.read_parquet(os.path.join(folder_path, "results.parquet"))
+    return lap_df, tele_df, weather_df, result_df
+class F1:
+    def __init__(self, laps, telemetry, weather, results):
+        self.lap_df = laps
+        self.weather_df = weather
+        self.tele_df = telemetry
+        self.result_df = results
 
-# Driver Name standardization
-def driver_name_standard(df, result_df):
-    driver_map = dict(zip(result_df['Abbreviation'], result_df['FirstName']+" " + result_df['LastName']))
-    df['Driver'] = df['Driver'].map(driver_map).fillna(df['Driver'])
-    return df
+    # Getting the necessary information
+    def fetch_details(self, df, name="DataFrame"):
+        print("Number of rows: ", df.shape[0])
+        print("Number of columns: ", df.shape[1])
+        print("Columns: ", df.columns.to_list)
+        print("Duplicated: ", df.duplicated().sum())
+        print("Null: ", df.isna().sum().to_dict())
 
-# Drop duplicates
-def drop_duplicates(df):
-    df = df.drop_duplicates()
-    return df
-
-# Convert times into numeric seconds for multiple columns
-# If there is only one column, use that one column in a list
-def time_to_numeric(df, column_list):
-    for i in column_list:
-        df[i] = df[i].dt.total_seconds()
+    # Dropping unnecessary columns
+    def drop_columns(self, df, drop_list):
+        df = df.drop(drop_list, axis = 1)
         return df
 
-# creating flag columns
-def flag_columns(df, exist_columns, new_columns):
-    if len(exist_columns) != len(new_columns):
-        return "Error: Length of lists is not same"
-    for i in range(len(exist_columns)):
-        df[new_columns[i]] = df[exist_columns[i]].isna()
+    # Driver Name standardization
+    def driver_name_standard(self, df):
+        driver_map = dict(zip(
+            self.result_df['Abbreviation'], self.result_df['FirstName'] + " " + self.result_df['LastName']
+        ))
+        df['Driver'] = df['Driver'].map(driver_map).fillna(df['Driver'])
+        return df
 
-    return df
+    # Drop Duplicates
+    def drop_duplicates(self, df):
+        df = df.drop_duplicates()
+        return df
 
-# Create mappings
-def create_mapping(df, column_name, map_dict):
-    df[column_name] = df[column_name].map(map_dict).fillna(df[column_name])
-    print(df[column_name].unique)
-    return df
+    # Convert times into numeric seconds for multiple columns
+    # If there is only one column, use that one column in a list
+    def time_to_numeric(self, df, column_list):
+        for i in column_list:
+            df[i] = df[i].dt.total_seconds()
+            return df
 
-# Change datatypes
-def change_dtypes(df, columns, dtypes):
-    if not isinstance(dtypes, list):
-        dtypes = [dtypes] * len(columns)
-    for col, dtype in zip(columns, dtypes):
-        df[col] = df[col].astype(dtype)
-    return df
+    # Creating Flag columns
+    def flag_columns(self, df, exist_columns, new_columns):
+        if len(exist_columns) != len(new_columns):
+            return "Error: Length of lists is not same"
+        else:
+            for i in range(len(exist_columns)):
+                df[new_columns[i]] = df[exist_columns[i]].isna()
+        return df
 
-# Creating timestamp Format
-def timestamp_format(df, column_list):
-    for i in column_list:
-        td = pd.to_timedelta(df[i])
-        h = td.dt.components.hours
-        m = td.dt.components.minutes
-        s = td.dt.components.seconds
-        ms = td.dt.components.milliseconds / 1000
+    # create mappings
+    def create_mapping(self, df, column_name, map_dict):
+        df[column_name] = df[column_name].map(map_dict).fillna(df[column_name])
+        return df
 
-        df[i] = (
-            h.astype(str).str.zfill(2) + ":"+
-            m.astype(str).str.zfill(2) + ":"+
-            s.astype(str).str.zfill(2) + "." +
-            ms.astype(str).str.zfill(3)
-        )
+    # Change Datatypes
+    def change_dtypes(self, df, columns, dtypes):
+        if not isinstance(dtypes, list):
+            dtypes = [dtypes] * len(columns)
+        for col, dtype in zip(columns, dtypes):
+            df[col] = df[col].astype(dtype)
+        return df
 
-    return df
+    # Creating Timestamp format
+    def timestamp_format(self, df, column_list):
+        for i in column_list:
+            td = pd.to_timedelta(df[i])
+            h = td.dt.components.hours
+            m = td.dt.components.minutes
+            s = td.dt.components.seconds
+            ms = td.dt.components.milliseconds / 1000
 
-# Get unique values in a column
-def unique_values(df, column):
-    print(df[column].unique())
+            df[i] = (h.astype(str).str.zfill(2) + ":" + m.astype(str).str.zfill(2) + ":" + s.astype(str).str.zfill(2) + "." + ms.astype(str).str.zfill(3))
+        return df
+
+    # Get unique values in a column
+    def unique_values(self, df, column):
+        return df[column].unique().tolist()
+
+
+
+# folder = "f1_parquet_data/2025/Round_1_Australian_Grand_Prix/R"
+# laps, telemetry, weather, results = load_session_data(folder)
+# session: F1 = F1(laps, telemetry, weather, results)
+# session.fetch_details(session.lap_df, "Laps")
+
+# Generalised data functions
 
 
 # Lap Data Functions
