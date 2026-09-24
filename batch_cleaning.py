@@ -2,13 +2,13 @@ import numpy as np
 import pandas as pd
 import os
 
-
 def load_session_data(folder_path):
     lap_df = pd.read_parquet(os.path.join(folder_path, "laps.parquet"))
     tele_df = pd.read_parquet(os.path.join(folder_path, "telemetry.parquet"))
     weather_df = pd.read_parquet(os.path.join(folder_path, "weather.parquet"))
     result_df = pd.read_parquet(os.path.join(folder_path, "results.parquet"))
     return lap_df, tele_df, weather_df, result_df
+
 class F1:
     def __init__(self, laps, telemetry, weather, results):
         self.lap_df = laps
@@ -172,54 +172,52 @@ class Telemetry(F1):
         self.tele_df = self.tele_df.drop(columns=['DeltaX', 'DeltaY', 'DistanceStep','TimeStep','ImpliedSpeed'])
         return self.tele_df
 
+class Weather(F1):
+    def __init__(self, weather_df, result_df=None):
+        super().__init__(laps=None, telemetry=None, weather=weather_df, results=result_df)
 
+    def weather_impossible_values(self):
+        self.weather_df = self.weather_df[(self.weather_df['AirTemp'] >= 10) | (self.weather_df['AirTemp'] <= 45)]
+        self.weather_df = self.weather_df[(self.weather_df['TrackTemp'] >= 15) | (self.weather_df['TrackTemp'] <= 60)]
+        self.weather_df = self.weather_df[(self.weather_df['Humidity'] >= 10) | (self.weather_df['Humidity'] <= 100)]
+        self.weather_df = self.weather_df[(self.weather_df['WindSpeed'] >= 0) | (self.weather_df['WindSpeed'] <= 15)]
+        self.weather_df = self.weather_df[(self.weather_df['WindDirection'] >= 0) | (self.weather_df['WindDirection'] <= 360)]
+        return self.weather_df
+
+class Result(F1):
+    def __init__(self, result_df):
+        super().__init__(laps=None, telemetry=None, weather=None, results=result_df)
+
+    # format race completion times
+    def race_comp_times(self, row):
+        td = pd.to_timedelta(row['FormattedTime'], errors='coerce')
+        total_seconds = td.total_seconds()
+        if pd.isna(total_seconds):
+            return pd.NaT
+        h = int(total_seconds//3600)
+        m = int((total_seconds%3600) // 60)
+        s = int(total_seconds % 60)
+        ms = int(round((total_seconds % 1) * 1000))
+
+        if row['Position'] == 1.0:
+            return f"{h:02d}:{m:02d}:{s:02d}.{ms:03d}"
+        else:
+            total_mins = int(total_seconds // 60)
+            return f"+{total_mins:02d}:{s:02d}.{ms:03d}"
+
+    def add_formatted_time(self):
+        self.result_df['FormattedTime'] = self.result_df.apply(self.race_comp_times, axis=1)
+        return self.result_df
+
+    # DNF, DNS and DSQ flag
+    def retire_flag(self, column_name="RaceOutcome"):
+        dnfs = ['Retired', 'Accident', 'Collision', 'Engine', 'Gearbox', 'Power Unit', 'Suspension', 'Brakes', 'Overheating']
+        conditions = [self.result_df['Status'].isin(dnfs), self.result_df['Status'] == 'DNS', self.result_df['Status'] == 'Disqualified']
+        choices = ['DNF', 'DNS', 'DSQ']
+        self.result_df[column_name] = np.select(conditions, choices, default='Finished')
+        return self.result_df
 
 # folder = "f1_parquet_data/2025/Round_1_Australian_Grand_Prix/R"
 # laps, telemetry, weather, results = load_session_data(folder)
 # session: F1 = F1(laps, telemetry, weather, results)
 # session.fetch_details(session.lap_df, "Laps")
-
-# Telemetry Data Functions
-# Remove Corrupted GPS points
-def corrupted_GPS(df):
-    df = df.dropna(subset=['X','Y'])
-    df = df[~((df['X']==0) & (df['Y']==0))]
-
-    # Filter out spatial jumps
-    df['DeltaX'] = df['X'].diff()
-    df['DeltaY'] = df['Y'].diff()
-    df["DistanceStep"] = np.sqrt(df['DeltaX']**2 + df['DeltaY']**2)
-    if 'Date' in df.columns:
-        parsed_dates = pd.to_datetime(df['Date'], errors='coerce')
-        df['TimeStep'] = parsed_dates.diff().dt.total_seconds()
-        df['TimeStep'] = df['TimeStep'].fillna(0.1)
-    else:
-        df['TimeStep'] = 0.1
-
-    max_plausible_speed = 400
-    df['ImpliedSpeed'] = np.where(df['TimeStep'] > 0, df['DistanceStep']/df['TimeStep'], 0)
-    df = df[df['ImpliedSpeed'] <= max_plausible_speed]
-    df = df.drop(columns=['DeltaX', 'DeltaY', 'DistanceStep','TimeStep','ImpliedSpeed'])
-    return df
-
-# Weather Data Functions
-# Handling impossible values
-def weather_impossible_values(df):
-    df = df[(df['AirTemp'] >= 10) | (df['AirTemp'] <= 45)]
-    df = df[(df['TrackTemp'] >= 15) | (df['TrackTemp'] <= 60)]
-    df = df[(df['Humidity'] >= 10) | (df['Humidity'] <= 100)]
-    df = df[(df['WindSpeed'] >= 0) | (df['WindSpeed'] <= 15)]
-    df = df[(df['WindDirection'] >= 0) | (df['WindDirection'] <= 360)]
-    return df
-
-# DNF, DNS and DSQ flag
-def retire_flag(df, column_name="RaceOutcome"):
-    dnfs = ['Retired', 'Accident', 'Collision', 'Engine', 'Gearbox', 'Power Unit', 'Suspension', 'Brakes', 'Overheating']
-    conditions = [
-        df['Status'].isin(dnfs),
-        df['Status'] == 'DNS',
-        df['Status'] == 'Disqualified'
-    ]
-    choices = ['DNF', 'DNS', 'DSQ']
-    df[column_name] = np.select(conditions, choices, default='Finished')
-    return df
