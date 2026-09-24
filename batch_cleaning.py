@@ -87,46 +87,43 @@ class F1:
     def unique_values(self, df, column):
         return df[column].unique().tolist()
 
+class Laps(F1):
+    def __init__(self, lap_df, result_df=None):
+        super().__init__(laps=lap_df, telemetry=None, weather=None, results=result_df)
 
+    # Remove Formation lap
+    def remove_formation_lap(self):
+        self.lap_df = self.lap_df[self.lap_df['LapNumber'] != 0]
+        return self.lap_df
+
+    # Handling in-laps and out-laps
+    def in_out_laps(self):
+        self.lap_df['IsInLap'] = self.lap_df['PitInTime'].isna()
+        self.lap_df['IsOutLap'] = self.lap_df['PitOutTime'].isna()
+        return self.lap_df
+
+    # Track Status Handling
+    def track_status(self):
+        trackStatus_map = {
+            "1": "Track Clear", "2": "Yellow Flag",
+            "4": "Safety Car deployed", "5": "Red Flag (Session Suspended)",
+            "6": "Virtual Safety Car deployed","7": "Virtual Safety Car ending"
+        }
+        statusList = []
+        self.lap_df['TrackStatus'].to_string()
+        for i in self.lap_df['TrackStatus']:
+            status = ""
+            for j in i:
+                status += trackStatus_map[j] + "-"
+            statusList.append(status)
+        self.lap_df['TrackData'] = statusList
+        self.lap_df['TrackData'] = self.lap_df['TrackData'].str.rstrip("-")
+        return self.lap_df
 
 # folder = "f1_parquet_data/2025/Round_1_Australian_Grand_Prix/R"
 # laps, telemetry, weather, results = load_session_data(folder)
 # session: F1 = F1(laps, telemetry, weather, results)
 # session.fetch_details(session.lap_df, "Laps")
-
-# Generalised data functions
-
-
-# Lap Data Functions
-# Remove Formation Laps
-def remove_formation_laps(df):
-    df = df[df['LapNumber'] != 0]
-    return df
-
-# Handling in-laps and out-laps
-def in_out_laps(df):
-    df['IsInLap'] = df['PitInTime'].isna()
-    df['IsOutLap'] = df['PitOutTime'].isna()
-    return df
-
-# Track Status Handling
-trackStatus_map = {
-    "1": "Track Clear", "2": "Yellow Flag",
-    "4": "Safety Car deployed", "5": "Red Flag (Session Suspended)",
-    "6": "Virtual Safety Car deployed","7": "Virtual Safety Car ending"
-}
-def track_status(df):
-    status_list = []
-    df['TrackStatus'].to_string()
-    for i in df['TrackStatus']:
-        status = ""
-        for j in i:
-            status += trackStatus_map[j] + "-"
-        status_list.append(status)
-    df['TrackData'] = status_list
-    df['TrackData'] = df['TrackData'].str.rstrip("-")
-    return df
-
 
 # Telemetry Data Functions
 # Removing impossible values
