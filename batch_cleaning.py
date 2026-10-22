@@ -14,7 +14,7 @@ def load_session_data(folder_path):
     weather_df = pd.read_parquet(paths['weather'])
     tele_df = pd.read_parquet(paths['telemetry'])
     results_df = pd.read_parquet(paths['results'])
-    return paths, laps_df, weather_df, tele_df, results_df
+    return paths, laps_df, tele_df, weather_df, results_df
 class F1:
     def __init__(self, df, results, file_path: None):
         self.df = df.copy()
@@ -188,51 +188,65 @@ class Telemetry(F1):
 
     # Removing Impossible values
     def tele_impossible_val(self):
-        self.tele_df['Speed'] = self.tele_df[(self.tele_df['Speed'] >= 0) | (self.tele_df['Speed'] < 400)]
-        self.tele_df['Throttle'] = self.tele_df[(self.tele_df['Throttle'] >= 0) | (self.tele_df['Throttle'] <= 100)]
-        self.tele_df['Brake'] = self.tele_df[(self.tele_df['Brake'].isna()) | (self.tele_df['Brake'].isin([True, False]))]
-        return self.tele_df
+        print("Available columns:", self.df.columns.tolist())  # Debugging step
+
+        self.df = self.df[
+            (self.df['Speed'] >= 0) & (self.df['Speed'] < 400) &
+            (self.df['Throttle'] >= 0) & (self.df['Throttle'] <= 100) &
+            (self.df['Brake'].isna() | self.df['Brake'].isin([True, False]))
+        ]
+        return self.df
 
     # Synchronize Telemetry Frequency
     def synch_frequency(self):
-        self.tele_df['Date'] = pd.to_datetime(self.tele_df['Date'])
-        self.tele_df = self.tele_df.set_index('Date')
-        self.tele_df = self.tele_df[~self.tele_df.index.duplicated(keep='first')]
+        self.df['Date'] = pd.to_datetime(self.df['Date'])
+        self.df = self.df.set_index('Date')
+        self.df = self.df[~self.df.index.duplicated(keep='first')]
 
-        # Seperate columns by type to apply interpolation rules
-        # - Continous (Speed, throttle, RPM) need linear interpolation
-        # - Discrete (nGear, DRS, Brake) need forward fill
         continuous_cols = ['Speed', 'RPM', 'Throttle', 'X', 'Y', 'Z']
         discrete_cols = ['nGear', 'DRS', 'Brake']
-        existing_cont = [col for col in continuous_cols if col in self.tele_df.columns]
-        existing_disc = [col for col in discrete_cols if col in self.tele_df.columns]
+
+        # Capture any other columns (like Driver, Source, LapNumber, etc.) to forward-fill them
+        existing_cols = self.df.columns.tolist()
+        metadata_cols = [col for col in existing_cols if col not in continuous_cols + discrete_cols]
+
+        existing_cont = [col for col in continuous_cols if col in self.df.columns]
+        existing_disc = [col for col in discrete_cols if col in self.df.columns]
+        existing_meta = [col for col in metadata_cols if col in self.df.columns]
+
         rule = '100ms'
-        self.tele_df = pd.concat([
-            self.tele_df[existing_cont].resample(rule).mean().interpolate(method='linear'),
-            self.tele_df[existing_disc].resample(rule).ffill()
-        ], axis=1)
-        self.tele_df = self.tele_df.reset_index()
-        return self.tele_df
+
+        resampled_parts = []
+        if existing_cont:
+            resampled_parts.append(self.df[existing_cont].resample(rule).mean().interpolate(method='linear'))
+        if existing_disc:
+            resampled_parts.append(self.df[existing_disc].resample(rule).ffill())
+        if existing_meta:
+            resampled_parts.append(self.df[existing_meta].resample(rule).ffill())
+
+        self.df = pd.concat(resampled_parts, axis=1)
+        self.df = self.df.reset_index()
+        return self.df
 
     # Remove corrupted GPS points
     def corrupted_GPS(self):
-        self.tele_df = self.tele_df.dropna(subset = ['X','Y'])
-        self.tele_df = self.tele_df[~((self.tele_df['X']==0) & (self.tele_df['Y']==0))]
+        self.df = self.df.dropna(subset = ['X','Y'])
+        self.df = self.df[~((self.df['X']==0) & (self.df['Y']==0))]
         # Filter spatial jumps
-        self.tele_df['DeltaX'] = self.tele_df['X'].diff()
-        self.tele_df['DeltaY'] = self.tele_df['Y'].diff()
-        self.tele_df['DistanceStep'] = np.sqrt(self.tele_df['DeltaX']**2 + self.tele_df['DeltaY']**2)
-        if 'Date' in self.tele_df.columns:
-            parsed_dates = pd.to_datetime(self.tele_df['Date'], errors='coerce')
-            self.tele_df['TimeStep'] = parsed_dates.diff().dt.total_seconds()
-            self.tele_df['TimeStep'] = self.tele_df['TimeStep'].fillna(0.1)
+        self.df['DeltaX'] = self.df['X'].diff()
+        self.df['DeltaY'] = self.df['Y'].diff()
+        self.df['DistanceStep'] = np.sqrt(self.df['DeltaX']**2 + self.df['DeltaY']**2)
+        if 'Date' in self.df.columns:
+            parsed_dates = pd.to_datetime(self.df['Date'], errors='coerce')
+            self.df['TimeStep'] = parsed_dates.diff().dt.total_seconds()
+            self.df['TimeStep'] = self.df['TimeStep'].fillna(0.1)
         else:
-            self.tele_df['TimeStep'] = 0.1
+            self.df['TimeStep'] = 0.1
         max_plausible_speed = 400
-        self.tele_df['ImpliedSpeed'] = np.where(self.tele_df['TimeStep'] > 0, self.tele_df['DistanceStep']/self.tele_df['TimeStep'], 0)
-        self.tele_df = self.tele_df[self.tele_df['ImpliedSpeed'] <= max_plausible_speed]
-        self.tele_df = self.tele_df.drop(columns=['DeltaX', 'DeltaY', 'DistanceStep','TimeStep','ImpliedSpeed'])
-        return self.tele_df
+        self.df['ImpliedSpeed'] = np.where(self.df['TimeStep'] > 0, self.df['DistanceStep']/self.df['TimeStep'], 0)
+        self.df = self.df[self.df['ImpliedSpeed'] <= max_plausible_speed]
+        self.df = self.df.drop(columns=['DeltaX', 'DeltaY', 'DistanceStep','TimeStep','ImpliedSpeed'])
+        return self.df
 
 class Weather(F1):
     def __init__(self, weather_df, results_df=None):
@@ -288,34 +302,62 @@ class Result(F1):
 
 folder_path = "f1_parquet_data/2025/Round_1_Australian_Grand_Prix/R"
 paths, lap_df, tele_df, weather_df, results_df = load_session_data(folder_path)
-f1_laps = Laps(lap_df=lap_df, results_df=results_df)
+# f1_laps = Laps(lap_df=lap_df, results_df=results_df)
 
-f1_laps.fetch_details()  # Working
+# f1_laps.fetch_details()  # Working
 
-lap_drop = ["Time", "DriverNumber", "Sector1SessionTime", "Sector2SessionTime", "Sector3SessionTime", "SpeedI1", "SpeedI2", "SpeedFL", "SpeedST", "LapStartTime", "LapStartDate", "FastF1Generated"]
-f1_laps.drop_columns(lap_drop)
-f1_laps.drop_duplicates()
-f1_laps.driver_name_standard()
+# lap_drop = ["Time", "DriverNumber", "Sector1SessionTime", "Sector2SessionTime", "Sector3SessionTime", "SpeedI1", "SpeedI2", "SpeedFL", "SpeedST", "LapStartTime", "LapStartDate", "FastF1Generated"]
+# f1_laps.drop_columns(lap_drop)
+# f1_laps.drop_duplicates()
+# f1_laps.driver_name_standard()
 
-columnToNumeric = ["LapTime", "Sector1Time", "Sector2Time", "Sector3Time", 'PitInTime', 'PitOutTime']
-f1_laps.time_to_numeric(columnToNumeric)
+# columnToNumeric = ["LapTime", "Sector1Time", "Sector2Time", "Sector3Time", 'PitInTime', 'PitOutTime']
+# f1_laps.time_to_numeric(columnToNumeric)
 
-exist_columns = ["Sector1Time", "Sector2Time", "Sector3Time"]
-new_columns = ["MissingSector1", "MissingSector2", "MissingSector3"]
-f1_laps.flag_columns(exist_columns=exist_columns, new_columns=new_columns)
+# exist_columns = ["Sector1Time", "Sector2Time", "Sector3Time"]
+# new_columns = ["MissingSector1", "MissingSector2", "MissingSector3"]
+# f1_laps.flag_columns(exist_columns=exist_columns, new_columns=new_columns)
 
-f1_laps.remove_formation_lap()
-f1_laps.in_out_laps()
-f1_laps.track_status()
+# f1_laps.remove_formation_lap()
+# f1_laps.in_out_laps()
+# f1_laps.track_status()
 
-compound_df = {"SOFT": 1, "MEDIUM": 2, "HARD": 3, "INTERMEDIATE": 4, "WET": 5}
-f1_laps.create_mapping("Compound", compound_df)
+# compound_df = {"SOFT": 1, "MEDIUM": 2, "HARD": 3, "INTERMEDIATE": 4, "WET": 5}
+# f1_laps.create_mapping("Compound", compound_df)
 
-columns_to_change = ["LapNumber", "Stint", "IsPersonalBest", "TyreLife", "TrackStatus"]
-dtypes_to_apply = ['int64', 'int64', bool, bool, 'int64']
-f1_laps.change_dtypes(columns_to_change, dtypes_to_apply)
+# columns_to_change = ["LapNumber", "Stint", "IsPersonalBest", "TyreLife", "TrackStatus"]
+# dtypes_to_apply = ['int64', 'int64', bool, bool, 'int64']
+# f1_laps.change_dtypes(columns_to_change, dtypes_to_apply)
 
-# FIX: Print and save from f1_laps.df (the modified dataframe), not lap_df
-print(f1_laps.df)
-f1_laps.df.to_parquet("laps_cleaned.parquet", index=False)
-print("Successfully saved cleaned laps to laps_cleaned.parquet")
+# # FIX: Print and save from f1_laps.df (the modified dataframe), not lap_df
+# print(f1_laps.df)
+# f1_laps.df.to_parquet("laps_cleaned.parquet", index=False)
+# print("Successfully saved cleaned laps to laps_cleaned.parquet")
+
+
+f1_tele = Telemetry(tele_df=tele_df, results_df=results_df)
+f1_tele.fetch_details()
+f1_tele.drop_duplicates()
+
+f1_tele.driver_name_standard()  # Somehow Driver got removed
+
+tele_drop = ['DistanceToDriverAhead','RelativeDistance']
+f1_tele.drop_columns(tele_drop)
+
+source_map = {'interpolation': 'i', 'car': 'c', 'pos': 'p'}
+f1_tele.create_mapping('Source', source_map)  # Source also got removed
+
+f1_tele.tele_impossible_val()
+f1_tele.synch_frequency()
+f1_tele.corrupted_GPS()
+
+column_to_change = ['RPM']
+dtype_to_apply = ['int64']
+f1_tele.change_dtypes(column_to_change, dtype_to_apply) # Not Working
+
+td_l = ["SessionTime", "Time"]
+f1_tele.timestamp_format(td_l)
+
+print(f1_tele.df)
+f1_tele.df.to_parquet("tele_cleaned.parquet", index=False)
+print("Successfully saved")
