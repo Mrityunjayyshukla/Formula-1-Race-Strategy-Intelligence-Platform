@@ -253,12 +253,12 @@ class Weather(F1):
         super().__init__(df=weather_df, results=results_df, file_path=None)
 
     def weather_impossible_values(self):
-        self.weather_df = self.weather_df[(self.weather_df['AirTemp'] >= 10) | (self.weather_df['AirTemp'] <= 45)]
-        self.weather_df = self.weather_df[(self.weather_df['TrackTemp'] >= 15) | (self.weather_df['TrackTemp'] <= 60)]
-        self.weather_df = self.weather_df[(self.weather_df['Humidity'] >= 10) | (self.weather_df['Humidity'] <= 100)]
-        self.weather_df = self.weather_df[(self.weather_df['WindSpeed'] >= 0) | (self.weather_df['WindSpeed'] <= 15)]
-        self.weather_df = self.weather_df[(self.weather_df['WindDirection'] >= 0) | (self.weather_df['WindDirection'] <= 360)]
-        return self.weather_df
+        self.df = self.df[(self.df['AirTemp'] >= 10) | (self.df['AirTemp'] <= 45)]
+        self.df = self.df[(self.df['TrackTemp'] >= 15) | (self.df['TrackTemp'] <= 60)]
+        self.df = self.df[(self.df['Humidity'] >= 10) | (self.df['Humidity'] <= 100)]
+        self.df = self.df[(self.df['WindSpeed'] >= 0) | (self.df['WindSpeed'] <= 15)]
+        self.df = self.df[(self.df['WindDirection'] >= 0) | (self.df['WindDirection'] <= 360)]
+        return self.df
 
 class Result(F1):
     def __init__(self, results_df):
@@ -335,29 +335,39 @@ paths, lap_df, tele_df, weather_df, results_df = load_session_data(folder_path)
 # print("Successfully saved cleaned laps to laps_cleaned.parquet")
 
 
-f1_tele = Telemetry(tele_df=tele_df, results_df=results_df)
-f1_tele.fetch_details()
-f1_tele.drop_duplicates()
+# f1_tele = Telemetry(tele_df=tele_df, results_df=results_df)
+# f1_tele.fetch_details()
+# f1_tele.drop_duplicates()
 
-f1_tele.driver_name_standard()  # Somehow Driver got removed
+# f1_tele.driver_name_standard()  # Somehow Driver got removed
 
-tele_drop = ['DistanceToDriverAhead','RelativeDistance']
-f1_tele.drop_columns(tele_drop)
+# tele_drop = ['DistanceToDriverAhead','RelativeDistance']
+# f1_tele.drop_columns(tele_drop)
 
-source_map = {'interpolation': 'i', 'car': 'c', 'pos': 'p'}
-f1_tele.create_mapping('Source', source_map)  # Source also got removed
+# source_map = {'interpolation': 'i', 'car': 'c', 'pos': 'p'}
+# f1_tele.create_mapping('Source', source_map)  # Source also got removed
 
-f1_tele.tele_impossible_val()
-f1_tele.synch_frequency()
-f1_tele.corrupted_GPS()
+# f1_tele.tele_impossible_val()
+# f1_tele.synch_frequency()
+# f1_tele.corrupted_GPS()
 
-column_to_change = ['RPM']
-dtype_to_apply = ['int64']
-f1_tele.change_dtypes(column_to_change, dtype_to_apply) # Not Working
+# column_to_change = ['RPM']
+# dtype_to_apply = ['int64']
+# f1_tele.change_dtypes(column_to_change, dtype_to_apply) # Not Working
 
-td_l = ["SessionTime", "Time"]
-f1_tele.timestamp_format(td_l)
+# td_l = ["SessionTime", "Time"]
+# f1_tele.timestamp_format(td_l)
 
-print(f1_tele.df)
-f1_tele.df.to_parquet("tele_cleaned.parquet", index=False)
-print("Successfully saved")
+# print(f1_tele.df)
+# f1_tele.df.to_parquet("tele_cleaned.parquet", index=False)
+# print("Successfully saved")
+
+f1_weat = Weather(weather_df=weather_df)
+f1_weat.fetch_details()
+
+weat_col = ['Time']
+f1_weat.timestamp_format(weat_col)
+f1_weat.weather_impossible_values()
+print(f1_weat.df)
+f1_weat.df.to_parquet("weather_cleaned.parquet", index=False)
+print("Saved Successfully")
