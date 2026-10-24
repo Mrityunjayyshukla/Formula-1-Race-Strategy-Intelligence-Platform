@@ -93,7 +93,7 @@ class F1:
             dtypes = [dtypes] * len(columns)
         for col, dtype in zip(columns, dtypes):
             if col in self.df.columns:
-                self.df[col] = self.df[col].astype(dtype)
+                self.df[col] = self.df[col].fillna(0).astype(dtype)
         return self.df
 
     # Creating Timestamp format
@@ -280,17 +280,18 @@ class Result(F1):
         return self.df
 
 directory_folder = "f1_parquet_data"
-for file_path in Path(directory_folder).glob("2022/Round_*/R"):
+for file_path in Path(directory_folder).glob("2025/Round_*/R"):
     paths, lap_df, tele_df, weather_df, results_df = load_session_data(file_path)
     year = file_path.parts[-3]
     round_folder = file_path.parts[-2]
     round_name = " ".join(round_folder.split("_")[2:])
+    round_number = "".join(round_folder.split("_")[1])
     session_type = "Race" if file_path.parts[-1] == "R" else "Sprint"
 
     md_path = f"season_details/{year} Season Details.md"
     file_exist = os.path.exists(md_path)
     with open(md_path, "a", encoding="utf-8") as f:
-        f.write(f"## {year} - {round_name} ({session_type})\n")
+        f.write(f"## {year} - Round {round_number} {round_name} ({session_type})\n")
 
     # Lap Functions --------------------------------------
     f1_laps = Laps(lap_df=lap_df, results_df=results_df)
