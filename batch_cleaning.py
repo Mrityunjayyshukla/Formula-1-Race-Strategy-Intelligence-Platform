@@ -281,7 +281,7 @@ class Result(F1):
 
 # --------------------------------------------------------------------
 directory_folder = "f1_parquet_data"
-for file_path in Path(directory_folder).glob("2025/Round_*/R"):
+for file_path in Path(directory_folder).glob("2025/Round_*/S"):
     paths, lap_df, tele_df, weather_df, results_df = load_session_data(file_path)
     year = file_path.parts[-3]
     round_folder = file_path.parts[-2]

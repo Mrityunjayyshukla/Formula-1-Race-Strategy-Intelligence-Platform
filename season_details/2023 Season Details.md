@@ -1252,3 +1252,345 @@
 - **Duplicated Values:** 0
 - **Null Values:** {'DriverNumber': 0, 'DriverId': 0, 'TeamName': 0, 'TeamColor': 0, 'TeamId': 0, 'FullName': 0, 'Position': 0, 'GridPosition': 0, 'Time': 1, 'Status': 0, 'Points': 0, 'Laps': 0, 'RaceOutcome': 0}
 
+## 2023 - Round 12 Belgian Grand Prix (Sprint)
+### Laps - Before
+- **Number of rows:** 209
+- **Number of columns:** 31
+- **Columns:** ['Time', 'Driver', 'DriverNumber', 'LapTime', 'LapNumber', 'Stint', 'PitOutTime', 'PitInTime', 'Sector1Time', 'Sector2Time', 'Sector3Time', 'Sector1SessionTime', 'Sector2SessionTime', 'Sector3SessionTime', 'SpeedI1', 'SpeedI2', 'SpeedFL', 'SpeedST', 'IsPersonalBest', 'Compound', 'TyreLife', 'FreshTyre', 'Team', 'LapStartTime', 'LapStartDate', 'TrackStatus', 'Position', 'Deleted', 'DeletedReason', 'FastF1Generated', 'IsAccurate']
+- **Duplicated Values:** 0
+- **Null Values:** {'Time': 0, 'Driver': 0, 'DriverNumber': 0, 'LapTime': 59, 'LapNumber': 0, 'Stint': 0, 'PitOutTime': 189, 'PitInTime': 198, 'Sector1Time': 21, 'Sector2Time': 1, 'Sector3Time': 1, 'Sector1SessionTime': 21, 'Sector2SessionTime': 1, 'Sector3SessionTime': 1, 'SpeedI1': 1, 'SpeedI2': 1, 'SpeedFL': 12, 'SpeedST': 1, 'IsPersonalBest': 1, 'Compound': 0, 'TyreLife': 0, 'FreshTyre': 0, 'Team': 0, 'LapStartTime': 0, 'LapStartDate': 0, 'TrackStatus': 0, 'Position': 1, 'Deleted': 209, 'DeletedReason': 1, 'FastF1Generated': 0, 'IsAccurate': 0}
+
+### Laps - After
+- **Number of rows:** 209
+- **Number of columns:** 30
+- **Columns:** ['Driver', 'LapTime', 'LapNumber', 'Stint', 'PitOutTime', 'PitInTime', 'Sector1Time', 'Sector2Time', 'Sector3Time', 'SpeedI1', 'SpeedI2', 'SpeedFL', 'SpeedST', 'IsPersonalBest', 'Compound', 'TyreLife', 'FreshTyre', 'Team', 'LapStartTime', 'TrackStatus', 'Position', 'Deleted', 'DeletedReason', 'IsAccurate', 'MissingSector1', 'MissingSector2', 'MissingSector3', 'IsInLap', 'IsOutLap', 'TrackData']
+- **Duplicated Values:** 0
+- **Null Values:** {'Driver': 0, 'LapTime': 59, 'LapNumber': 0, 'Stint': 0, 'PitOutTime': 189, 'PitInTime': 198, 'Sector1Time': 21, 'Sector2Time': 1, 'Sector3Time': 1, 'SpeedI1': 1, 'SpeedI2': 1, 'SpeedFL': 12, 'SpeedST': 1, 'IsPersonalBest': 0, 'Compound': 0, 'TyreLife': 0, 'FreshTyre': 0, 'Team': 0, 'LapStartTime': 0, 'TrackStatus': 0, 'Position': 1, 'Deleted': 209, 'DeletedReason': 1, 'IsAccurate': 0, 'MissingSector1': 0, 'MissingSector2': 0, 'MissingSector3': 0, 'IsInLap': 0, 'IsOutLap': 0, 'TrackData': 0}
+
+### Telemetry - Before
+- **Number of rows:** 217207
+- **Number of columns:** 20
+- **Columns:** ['Date', 'SessionTime', 'DriverAhead', 'DistanceToDriverAhead', 'Time', 'RPM', 'Speed', 'nGear', 'Throttle', 'Brake', 'DRS', 'Source', 'Distance', 'RelativeDistance', 'Status', 'X', 'Y', 'Z', 'Driver', 'LapNumber']
+- **Duplicated Values:** 0
+- **Null Values:** {'Date': 0, 'SessionTime': 0, 'DriverAhead': 0, 'DistanceToDriverAhead': 6907, 'Time': 0, 'RPM': 0, 'Speed': 0, 'nGear': 0, 'Throttle': 0, 'Brake': 0, 'DRS': 0, 'Source': 0, 'Distance': 0, 'RelativeDistance': 0, 'Status': 0, 'X': 0, 'Y': 0, 'Z': 0, 'Driver': 0, 'LapNumber': 0}
+
+### Telemetry - After
+- **Number of rows:** 6621
+- **Number of columns:** 18
+- **Columns:** ['Date', 'Speed', 'RPM', 'Throttle', 'X', 'Y', 'Z', 'nGear', 'DRS', 'Brake', 'SessionTime', 'DriverAhead', 'Time', 'Source', 'Distance', 'Status', 'Driver', 'LapNumber']
+- **Duplicated Values:** 0
+- **Null Values:** {'Date': 0, 'Speed': 0, 'RPM': 0, 'Throttle': 0, 'X': 0, 'Y': 0, 'Z': 0, 'nGear': 0, 'DRS': 0, 'Brake': 0, 'SessionTime': 0, 'DriverAhead': 0, 'Time': 0, 'Source': 0, 'Distance': 0, 'Status': 0, 'Driver': 0, 'LapNumber': 0}
+
+### Weather - Before
+- **Number of rows:** 120
+- **Number of columns:** 8
+- **Columns:** ['Time', 'AirTemp', 'Humidity', 'Pressure', 'Rainfall', 'TrackTemp', 'WindDirection', 'WindSpeed']
+- **Duplicated Values:** 0
+- **Null Values:** {'Time': 0, 'AirTemp': 0, 'Humidity': 0, 'Pressure': 0, 'Rainfall': 0, 'TrackTemp': 0, 'WindDirection': 0, 'WindSpeed': 0}
+
+### Weather - After
+- **Number of rows:** 120
+- **Number of columns:** 8
+- **Columns:** ['Time', 'AirTemp', 'Humidity', 'Pressure', 'Rainfall', 'TrackTemp', 'WindDirection', 'WindSpeed']
+- **Duplicated Values:** 0
+- **Null Values:** {'Time': 0, 'AirTemp': 0, 'Humidity': 0, 'Pressure': 0, 'Rainfall': 0, 'TrackTemp': 0, 'WindDirection': 0, 'WindSpeed': 0}
+
+### Results - Before
+- **Number of rows:** 20
+- **Number of columns:** 22
+- **Columns:** ['DriverNumber', 'BroadcastName', 'Abbreviation', 'DriverId', 'TeamName', 'TeamColor', 'TeamId', 'FirstName', 'LastName', 'FullName', 'HeadshotUrl', 'CountryCode', 'Position', 'ClassifiedPosition', 'GridPosition', 'Q1', 'Q2', 'Q3', 'Time', 'Status', 'Points', 'Laps']
+- **Duplicated Values:** 0
+- **Null Values:** {'DriverNumber': 0, 'BroadcastName': 0, 'Abbreviation': 0, 'DriverId': 0, 'TeamName': 0, 'TeamColor': 0, 'TeamId': 0, 'FirstName': 0, 'LastName': 0, 'FullName': 0, 'HeadshotUrl': 0, 'CountryCode': 0, 'Position': 0, 'ClassifiedPosition': 0, 'GridPosition': 0, 'Q1': 0, 'Q2': 0, 'Q3': 0, 'Time': 0, 'Status': 0, 'Points': 0, 'Laps': 0}
+
+### Results - After
+- **Number of rows:** 20
+- **Number of columns:** 13
+- **Columns:** ['DriverNumber', 'DriverId', 'TeamName', 'TeamColor', 'TeamId', 'FullName', 'Position', 'GridPosition', 'Time', 'Status', 'Points', 'Laps', 'RaceOutcome']
+- **Duplicated Values:** 0
+- **Null Values:** {'DriverNumber': 0, 'DriverId': 0, 'TeamName': 0, 'TeamColor': 0, 'TeamId': 0, 'FullName': 0, 'Position': 0, 'GridPosition': 0, 'Time': 2, 'Status': 0, 'Points': 0, 'Laps': 0, 'RaceOutcome': 0}
+
+## 2023 - Round 17 Qatar Grand Prix (Sprint)
+### Laps - Before
+- **Number of rows:** 322
+- **Number of columns:** 31
+- **Columns:** ['Time', 'Driver', 'DriverNumber', 'LapTime', 'LapNumber', 'Stint', 'PitOutTime', 'PitInTime', 'Sector1Time', 'Sector2Time', 'Sector3Time', 'Sector1SessionTime', 'Sector2SessionTime', 'Sector3SessionTime', 'SpeedI1', 'SpeedI2', 'SpeedFL', 'SpeedST', 'IsPersonalBest', 'Compound', 'TyreLife', 'FreshTyre', 'Team', 'LapStartTime', 'LapStartDate', 'TrackStatus', 'Position', 'Deleted', 'DeletedReason', 'FastF1Generated', 'IsAccurate']
+- **Duplicated Values:** 0
+- **Null Values:** {'Time': 0, 'Driver': 0, 'DriverNumber': 0, 'LapTime': 36, 'LapNumber': 0, 'Stint': 0, 'PitOutTime': 319, 'PitInTime': 318, 'Sector1Time': 23, 'Sector2Time': 4, 'Sector3Time': 4, 'Sector1SessionTime': 24, 'Sector2SessionTime': 4, 'Sector3SessionTime': 4, 'SpeedI1': 4, 'SpeedI2': 4, 'SpeedFL': 8, 'SpeedST': 4, 'IsPersonalBest': 3, 'Compound': 0, 'TyreLife': 0, 'FreshTyre': 0, 'Team': 0, 'LapStartTime': 0, 'LapStartDate': 0, 'TrackStatus': 0, 'Position': 4, 'Deleted': 322, 'DeletedReason': 3, 'FastF1Generated': 0, 'IsAccurate': 0}
+
+### Laps - After
+- **Number of rows:** 322
+- **Number of columns:** 30
+- **Columns:** ['Driver', 'LapTime', 'LapNumber', 'Stint', 'PitOutTime', 'PitInTime', 'Sector1Time', 'Sector2Time', 'Sector3Time', 'SpeedI1', 'SpeedI2', 'SpeedFL', 'SpeedST', 'IsPersonalBest', 'Compound', 'TyreLife', 'FreshTyre', 'Team', 'LapStartTime', 'TrackStatus', 'Position', 'Deleted', 'DeletedReason', 'IsAccurate', 'MissingSector1', 'MissingSector2', 'MissingSector3', 'IsInLap', 'IsOutLap', 'TrackData']
+- **Duplicated Values:** 0
+- **Null Values:** {'Driver': 0, 'LapTime': 36, 'LapNumber': 0, 'Stint': 0, 'PitOutTime': 319, 'PitInTime': 318, 'Sector1Time': 23, 'Sector2Time': 4, 'Sector3Time': 4, 'SpeedI1': 4, 'SpeedI2': 4, 'SpeedFL': 8, 'SpeedST': 4, 'IsPersonalBest': 0, 'Compound': 0, 'TyreLife': 0, 'FreshTyre': 0, 'Team': 0, 'LapStartTime': 0, 'TrackStatus': 0, 'Position': 4, 'Deleted': 322, 'DeletedReason': 3, 'IsAccurate': 0, 'MissingSector1': 0, 'MissingSector2': 0, 'MissingSector3': 0, 'IsInLap': 0, 'IsOutLap': 0, 'TrackData': 0}
+
+### Telemetry - Before
+- **Number of rows:** 274131
+- **Number of columns:** 20
+- **Columns:** ['Date', 'SessionTime', 'DriverAhead', 'DistanceToDriverAhead', 'Time', 'RPM', 'Speed', 'nGear', 'Throttle', 'Brake', 'DRS', 'Source', 'Distance', 'RelativeDistance', 'Status', 'X', 'Y', 'Z', 'Driver', 'LapNumber']
+- **Duplicated Values:** 0
+- **Null Values:** {'Date': 0, 'SessionTime': 0, 'DriverAhead': 0, 'DistanceToDriverAhead': 12600, 'Time': 0, 'RPM': 0, 'Speed': 0, 'nGear': 0, 'Throttle': 0, 'Brake': 0, 'DRS': 0, 'Source': 0, 'Distance': 0, 'RelativeDistance': 0, 'Status': 0, 'X': 0, 'Y': 0, 'Z': 0, 'Driver': 0, 'LapNumber': 0}
+
+### Telemetry - After
+- **Number of rows:** 9255
+- **Number of columns:** 18
+- **Columns:** ['Date', 'Speed', 'RPM', 'Throttle', 'X', 'Y', 'Z', 'nGear', 'DRS', 'Brake', 'SessionTime', 'DriverAhead', 'Time', 'Source', 'Distance', 'Status', 'Driver', 'LapNumber']
+- **Duplicated Values:** 0
+- **Null Values:** {'Date': 0, 'Speed': 0, 'RPM': 0, 'Throttle': 0, 'X': 0, 'Y': 0, 'Z': 0, 'nGear': 0, 'DRS': 0, 'Brake': 0, 'SessionTime': 0, 'DriverAhead': 0, 'Time': 0, 'Source': 0, 'Distance': 0, 'Status': 0, 'Driver': 0, 'LapNumber': 0}
+
+### Weather - Before
+- **Number of rows:** 104
+- **Number of columns:** 8
+- **Columns:** ['Time', 'AirTemp', 'Humidity', 'Pressure', 'Rainfall', 'TrackTemp', 'WindDirection', 'WindSpeed']
+- **Duplicated Values:** 0
+- **Null Values:** {'Time': 0, 'AirTemp': 0, 'Humidity': 0, 'Pressure': 0, 'Rainfall': 0, 'TrackTemp': 0, 'WindDirection': 0, 'WindSpeed': 0}
+
+### Weather - After
+- **Number of rows:** 104
+- **Number of columns:** 8
+- **Columns:** ['Time', 'AirTemp', 'Humidity', 'Pressure', 'Rainfall', 'TrackTemp', 'WindDirection', 'WindSpeed']
+- **Duplicated Values:** 0
+- **Null Values:** {'Time': 0, 'AirTemp': 0, 'Humidity': 0, 'Pressure': 0, 'Rainfall': 0, 'TrackTemp': 0, 'WindDirection': 0, 'WindSpeed': 0}
+
+### Results - Before
+- **Number of rows:** 20
+- **Number of columns:** 22
+- **Columns:** ['DriverNumber', 'BroadcastName', 'Abbreviation', 'DriverId', 'TeamName', 'TeamColor', 'TeamId', 'FirstName', 'LastName', 'FullName', 'HeadshotUrl', 'CountryCode', 'Position', 'ClassifiedPosition', 'GridPosition', 'Q1', 'Q2', 'Q3', 'Time', 'Status', 'Points', 'Laps']
+- **Duplicated Values:** 0
+- **Null Values:** {'DriverNumber': 0, 'BroadcastName': 0, 'Abbreviation': 0, 'DriverId': 0, 'TeamName': 0, 'TeamColor': 0, 'TeamId': 0, 'FirstName': 0, 'LastName': 0, 'FullName': 0, 'HeadshotUrl': 0, 'CountryCode': 0, 'Position': 0, 'ClassifiedPosition': 0, 'GridPosition': 0, 'Q1': 0, 'Q2': 0, 'Q3': 0, 'Time': 0, 'Status': 0, 'Points': 0, 'Laps': 0}
+
+### Results - After
+- **Number of rows:** 20
+- **Number of columns:** 13
+- **Columns:** ['DriverNumber', 'DriverId', 'TeamName', 'TeamColor', 'TeamId', 'FullName', 'Position', 'GridPosition', 'Time', 'Status', 'Points', 'Laps', 'RaceOutcome']
+- **Duplicated Values:** 0
+- **Null Values:** {'DriverNumber': 0, 'DriverId': 0, 'TeamName': 0, 'TeamColor': 0, 'TeamId': 0, 'FullName': 0, 'Position': 0, 'GridPosition': 0, 'Time': 5, 'Status': 0, 'Points': 0, 'Laps': 0, 'RaceOutcome': 0}
+
+## 2023 - Round 18 United States Grand Prix (Sprint)
+### Laps - Before
+- **Number of rows:** 377
+- **Number of columns:** 31
+- **Columns:** ['Time', 'Driver', 'DriverNumber', 'LapTime', 'LapNumber', 'Stint', 'PitOutTime', 'PitInTime', 'Sector1Time', 'Sector2Time', 'Sector3Time', 'Sector1SessionTime', 'Sector2SessionTime', 'Sector3SessionTime', 'SpeedI1', 'SpeedI2', 'SpeedFL', 'SpeedST', 'IsPersonalBest', 'Compound', 'TyreLife', 'FreshTyre', 'Team', 'LapStartTime', 'LapStartDate', 'TrackStatus', 'Position', 'Deleted', 'DeletedReason', 'FastF1Generated', 'IsAccurate']
+- **Duplicated Values:** 0
+- **Null Values:** {'Time': 0, 'Driver': 0, 'DriverNumber': 0, 'LapTime': 20, 'LapNumber': 0, 'Stint': 0, 'PitOutTime': 377, 'PitInTime': 376, 'Sector1Time': 20, 'Sector2Time': 0, 'Sector3Time': 0, 'Sector1SessionTime': 21, 'Sector2SessionTime': 0, 'Sector3SessionTime': 0, 'SpeedI1': 0, 'SpeedI2': 0, 'SpeedFL': 1, 'SpeedST': 0, 'IsPersonalBest': 0, 'Compound': 0, 'TyreLife': 0, 'FreshTyre': 0, 'Team': 0, 'LapStartTime': 0, 'LapStartDate': 0, 'TrackStatus': 0, 'Position': 0, 'Deleted': 377, 'DeletedReason': 0, 'FastF1Generated': 0, 'IsAccurate': 0}
+
+### Laps - After
+- **Number of rows:** 377
+- **Number of columns:** 30
+- **Columns:** ['Driver', 'LapTime', 'LapNumber', 'Stint', 'PitOutTime', 'PitInTime', 'Sector1Time', 'Sector2Time', 'Sector3Time', 'SpeedI1', 'SpeedI2', 'SpeedFL', 'SpeedST', 'IsPersonalBest', 'Compound', 'TyreLife', 'FreshTyre', 'Team', 'LapStartTime', 'TrackStatus', 'Position', 'Deleted', 'DeletedReason', 'IsAccurate', 'MissingSector1', 'MissingSector2', 'MissingSector3', 'IsInLap', 'IsOutLap', 'TrackData']
+- **Duplicated Values:** 0
+- **Null Values:** {'Driver': 0, 'LapTime': 20, 'LapNumber': 0, 'Stint': 0, 'PitOutTime': 377, 'PitInTime': 376, 'Sector1Time': 20, 'Sector2Time': 0, 'Sector3Time': 0, 'SpeedI1': 0, 'SpeedI2': 0, 'SpeedFL': 1, 'SpeedST': 0, 'IsPersonalBest': 0, 'Compound': 0, 'TyreLife': 0, 'FreshTyre': 0, 'Team': 0, 'LapStartTime': 0, 'TrackStatus': 0, 'Position': 0, 'Deleted': 377, 'DeletedReason': 0, 'IsAccurate': 0, 'MissingSector1': 0, 'MissingSector2': 0, 'MissingSector3': 0, 'IsInLap': 0, 'IsOutLap': 0, 'TrackData': 0}
+
+### Telemetry - Before
+- **Number of rows:** 293609
+- **Number of columns:** 20
+- **Columns:** ['Date', 'SessionTime', 'DriverAhead', 'DistanceToDriverAhead', 'Time', 'RPM', 'Speed', 'nGear', 'Throttle', 'Brake', 'DRS', 'Source', 'Distance', 'RelativeDistance', 'Status', 'X', 'Y', 'Z', 'Driver', 'LapNumber']
+- **Duplicated Values:** 0
+- **Null Values:** {'Date': 0, 'SessionTime': 0, 'DriverAhead': 0, 'DistanceToDriverAhead': 13729, 'Time': 0, 'RPM': 0, 'Speed': 0, 'nGear': 0, 'Throttle': 0, 'Brake': 0, 'DRS': 0, 'Source': 0, 'Distance': 0, 'RelativeDistance': 0, 'Status': 0, 'X': 0, 'Y': 0, 'Z': 0, 'Driver': 0, 'LapNumber': 0}
+
+### Telemetry - After
+- **Number of rows:** 6842
+- **Number of columns:** 18
+- **Columns:** ['Date', 'Speed', 'RPM', 'Throttle', 'X', 'Y', 'Z', 'nGear', 'DRS', 'Brake', 'SessionTime', 'DriverAhead', 'Time', 'Source', 'Distance', 'Status', 'Driver', 'LapNumber']
+- **Duplicated Values:** 0
+- **Null Values:** {'Date': 0, 'Speed': 0, 'RPM': 0, 'Throttle': 0, 'X': 0, 'Y': 0, 'Z': 0, 'nGear': 0, 'DRS': 0, 'Brake': 0, 'SessionTime': 0, 'DriverAhead': 0, 'Time': 0, 'Source': 0, 'Distance': 0, 'Status': 0, 'Driver': 0, 'LapNumber': 0}
+
+### Weather - Before
+- **Number of rows:** 94
+- **Number of columns:** 8
+- **Columns:** ['Time', 'AirTemp', 'Humidity', 'Pressure', 'Rainfall', 'TrackTemp', 'WindDirection', 'WindSpeed']
+- **Duplicated Values:** 0
+- **Null Values:** {'Time': 0, 'AirTemp': 0, 'Humidity': 0, 'Pressure': 0, 'Rainfall': 0, 'TrackTemp': 0, 'WindDirection': 0, 'WindSpeed': 0}
+
+### Weather - After
+- **Number of rows:** 94
+- **Number of columns:** 8
+- **Columns:** ['Time', 'AirTemp', 'Humidity', 'Pressure', 'Rainfall', 'TrackTemp', 'WindDirection', 'WindSpeed']
+- **Duplicated Values:** 0
+- **Null Values:** {'Time': 0, 'AirTemp': 0, 'Humidity': 0, 'Pressure': 0, 'Rainfall': 0, 'TrackTemp': 0, 'WindDirection': 0, 'WindSpeed': 0}
+
+### Results - Before
+- **Number of rows:** 20
+- **Number of columns:** 22
+- **Columns:** ['DriverNumber', 'BroadcastName', 'Abbreviation', 'DriverId', 'TeamName', 'TeamColor', 'TeamId', 'FirstName', 'LastName', 'FullName', 'HeadshotUrl', 'CountryCode', 'Position', 'ClassifiedPosition', 'GridPosition', 'Q1', 'Q2', 'Q3', 'Time', 'Status', 'Points', 'Laps']
+- **Duplicated Values:** 0
+- **Null Values:** {'DriverNumber': 0, 'BroadcastName': 0, 'Abbreviation': 0, 'DriverId': 0, 'TeamName': 0, 'TeamColor': 0, 'TeamId': 0, 'FirstName': 0, 'LastName': 0, 'FullName': 0, 'HeadshotUrl': 0, 'CountryCode': 0, 'Position': 0, 'ClassifiedPosition': 0, 'GridPosition': 0, 'Q1': 0, 'Q2': 0, 'Q3': 0, 'Time': 0, 'Status': 0, 'Points': 0, 'Laps': 0}
+
+### Results - After
+- **Number of rows:** 20
+- **Number of columns:** 13
+- **Columns:** ['DriverNumber', 'DriverId', 'TeamName', 'TeamColor', 'TeamId', 'FullName', 'Position', 'GridPosition', 'Time', 'Status', 'Points', 'Laps', 'RaceOutcome']
+- **Duplicated Values:** 0
+- **Null Values:** {'DriverNumber': 0, 'DriverId': 0, 'TeamName': 0, 'TeamColor': 0, 'TeamId': 0, 'FullName': 0, 'Position': 0, 'GridPosition': 0, 'Time': 1, 'Status': 0, 'Points': 0, 'Laps': 0, 'RaceOutcome': 0}
+
+## 2023 - Round 20 São Paulo Grand Prix (Sprint)
+### Laps - Before
+- **Number of rows:** 480
+- **Number of columns:** 31
+- **Columns:** ['Time', 'Driver', 'DriverNumber', 'LapTime', 'LapNumber', 'Stint', 'PitOutTime', 'PitInTime', 'Sector1Time', 'Sector2Time', 'Sector3Time', 'Sector1SessionTime', 'Sector2SessionTime', 'Sector3SessionTime', 'SpeedI1', 'SpeedI2', 'SpeedFL', 'SpeedST', 'IsPersonalBest', 'Compound', 'TyreLife', 'FreshTyre', 'Team', 'LapStartTime', 'LapStartDate', 'TrackStatus', 'Position', 'Deleted', 'DeletedReason', 'FastF1Generated', 'IsAccurate']
+- **Duplicated Values:** 0
+- **Null Values:** {'Time': 0, 'Driver': 0, 'DriverNumber': 0, 'LapTime': 20, 'LapNumber': 0, 'Stint': 0, 'PitOutTime': 480, 'PitInTime': 480, 'Sector1Time': 20, 'Sector2Time': 0, 'Sector3Time': 0, 'Sector1SessionTime': 21, 'Sector2SessionTime': 0, 'Sector3SessionTime': 0, 'SpeedI1': 0, 'SpeedI2': 0, 'SpeedFL': 0, 'SpeedST': 0, 'IsPersonalBest': 0, 'Compound': 0, 'TyreLife': 0, 'FreshTyre': 0, 'Team': 0, 'LapStartTime': 0, 'LapStartDate': 0, 'TrackStatus': 0, 'Position': 0, 'Deleted': 480, 'DeletedReason': 0, 'FastF1Generated': 0, 'IsAccurate': 0}
+
+### Laps - After
+- **Number of rows:** 480
+- **Number of columns:** 30
+- **Columns:** ['Driver', 'LapTime', 'LapNumber', 'Stint', 'PitOutTime', 'PitInTime', 'Sector1Time', 'Sector2Time', 'Sector3Time', 'SpeedI1', 'SpeedI2', 'SpeedFL', 'SpeedST', 'IsPersonalBest', 'Compound', 'TyreLife', 'FreshTyre', 'Team', 'LapStartTime', 'TrackStatus', 'Position', 'Deleted', 'DeletedReason', 'IsAccurate', 'MissingSector1', 'MissingSector2', 'MissingSector3', 'IsInLap', 'IsOutLap', 'TrackData']
+- **Duplicated Values:** 0
+- **Null Values:** {'Driver': 0, 'LapTime': 20, 'LapNumber': 0, 'Stint': 0, 'PitOutTime': 480, 'PitInTime': 480, 'Sector1Time': 20, 'Sector2Time': 0, 'Sector3Time': 0, 'SpeedI1': 0, 'SpeedI2': 0, 'SpeedFL': 0, 'SpeedST': 0, 'IsPersonalBest': 0, 'Compound': 0, 'TyreLife': 0, 'FreshTyre': 0, 'Team': 0, 'LapStartTime': 0, 'TrackStatus': 0, 'Position': 0, 'Deleted': 480, 'DeletedReason': 0, 'IsAccurate': 0, 'MissingSector1': 0, 'MissingSector2': 0, 'MissingSector3': 0, 'IsInLap': 0, 'IsOutLap': 0, 'TrackData': 0}
+
+### Telemetry - Before
+- **Number of rows:** 282444
+- **Number of columns:** 20
+- **Columns:** ['Date', 'SessionTime', 'DriverAhead', 'DistanceToDriverAhead', 'Time', 'RPM', 'Speed', 'nGear', 'Throttle', 'Brake', 'DRS', 'Source', 'Distance', 'RelativeDistance', 'Status', 'X', 'Y', 'Z', 'Driver', 'LapNumber']
+- **Duplicated Values:** 0
+- **Null Values:** {'Date': 0, 'SessionTime': 0, 'DriverAhead': 0, 'DistanceToDriverAhead': 13227, 'Time': 0, 'RPM': 0, 'Speed': 0, 'nGear': 0, 'Throttle': 0, 'Brake': 0, 'DRS': 0, 'Source': 0, 'Distance': 0, 'RelativeDistance': 0, 'Status': 0, 'X': 0, 'Y': 0, 'Z': 0, 'Driver': 0, 'LapNumber': 0}
+
+### Telemetry - After
+- **Number of rows:** 5949
+- **Number of columns:** 18
+- **Columns:** ['Date', 'Speed', 'RPM', 'Throttle', 'X', 'Y', 'Z', 'nGear', 'DRS', 'Brake', 'SessionTime', 'DriverAhead', 'Time', 'Source', 'Distance', 'Status', 'Driver', 'LapNumber']
+- **Duplicated Values:** 0
+- **Null Values:** {'Date': 0, 'Speed': 0, 'RPM': 0, 'Throttle': 0, 'X': 0, 'Y': 0, 'Z': 0, 'nGear': 0, 'DRS': 0, 'Brake': 0, 'SessionTime': 0, 'DriverAhead': 0, 'Time': 0, 'Source': 0, 'Distance': 0, 'Status': 0, 'Driver': 0, 'LapNumber': 0}
+
+### Weather - Before
+- **Number of rows:** 90
+- **Number of columns:** 8
+- **Columns:** ['Time', 'AirTemp', 'Humidity', 'Pressure', 'Rainfall', 'TrackTemp', 'WindDirection', 'WindSpeed']
+- **Duplicated Values:** 0
+- **Null Values:** {'Time': 0, 'AirTemp': 0, 'Humidity': 0, 'Pressure': 0, 'Rainfall': 0, 'TrackTemp': 0, 'WindDirection': 0, 'WindSpeed': 0}
+
+### Weather - After
+- **Number of rows:** 90
+- **Number of columns:** 8
+- **Columns:** ['Time', 'AirTemp', 'Humidity', 'Pressure', 'Rainfall', 'TrackTemp', 'WindDirection', 'WindSpeed']
+- **Duplicated Values:** 0
+- **Null Values:** {'Time': 0, 'AirTemp': 0, 'Humidity': 0, 'Pressure': 0, 'Rainfall': 0, 'TrackTemp': 0, 'WindDirection': 0, 'WindSpeed': 0}
+
+### Results - Before
+- **Number of rows:** 20
+- **Number of columns:** 22
+- **Columns:** ['DriverNumber', 'BroadcastName', 'Abbreviation', 'DriverId', 'TeamName', 'TeamColor', 'TeamId', 'FirstName', 'LastName', 'FullName', 'HeadshotUrl', 'CountryCode', 'Position', 'ClassifiedPosition', 'GridPosition', 'Q1', 'Q2', 'Q3', 'Time', 'Status', 'Points', 'Laps']
+- **Duplicated Values:** 0
+- **Null Values:** {'DriverNumber': 0, 'BroadcastName': 0, 'Abbreviation': 0, 'DriverId': 0, 'TeamName': 0, 'TeamColor': 0, 'TeamId': 0, 'FirstName': 0, 'LastName': 0, 'FullName': 0, 'HeadshotUrl': 0, 'CountryCode': 0, 'Position': 0, 'ClassifiedPosition': 0, 'GridPosition': 0, 'Q1': 0, 'Q2': 0, 'Q3': 0, 'Time': 0, 'Status': 0, 'Points': 0, 'Laps': 0}
+
+### Results - After
+- **Number of rows:** 20
+- **Number of columns:** 13
+- **Columns:** ['DriverNumber', 'DriverId', 'TeamName', 'TeamColor', 'TeamId', 'FullName', 'Position', 'GridPosition', 'Time', 'Status', 'Points', 'Laps', 'RaceOutcome']
+- **Duplicated Values:** 0
+- **Null Values:** {'DriverNumber': 0, 'DriverId': 0, 'TeamName': 0, 'TeamColor': 0, 'TeamId': 0, 'FullName': 0, 'Position': 0, 'GridPosition': 0, 'Time': 0, 'Status': 0, 'Points': 0, 'Laps': 0, 'RaceOutcome': 0}
+
+## 2023 - Round 4 Azerbaijan Grand Prix (Sprint)
+### Laps - Before
+- **Number of rows:** 308
+- **Number of columns:** 31
+- **Columns:** ['Time', 'Driver', 'DriverNumber', 'LapTime', 'LapNumber', 'Stint', 'PitOutTime', 'PitInTime', 'Sector1Time', 'Sector2Time', 'Sector3Time', 'Sector1SessionTime', 'Sector2SessionTime', 'Sector3SessionTime', 'SpeedI1', 'SpeedI2', 'SpeedFL', 'SpeedST', 'IsPersonalBest', 'Compound', 'TyreLife', 'FreshTyre', 'Team', 'LapStartTime', 'LapStartDate', 'TrackStatus', 'Position', 'Deleted', 'DeletedReason', 'FastF1Generated', 'IsAccurate']
+- **Duplicated Values:** 0
+- **Null Values:** {'Time': 0, 'Driver': 0, 'DriverNumber': 0, 'LapTime': 73, 'LapNumber': 0, 'Stint': 0, 'PitOutTime': 303, 'PitInTime': 303, 'Sector1Time': 20, 'Sector2Time': 1, 'Sector3Time': 0, 'Sector1SessionTime': 20, 'Sector2SessionTime': 1, 'Sector3SessionTime': 0, 'SpeedI1': 0, 'SpeedI2': 0, 'SpeedFL': 5, 'SpeedST': 0, 'IsPersonalBest': 0, 'Compound': 0, 'TyreLife': 0, 'FreshTyre': 0, 'Team': 0, 'LapStartTime': 0, 'LapStartDate': 0, 'TrackStatus': 0, 'Position': 0, 'Deleted': 308, 'DeletedReason': 0, 'FastF1Generated': 0, 'IsAccurate': 0}
+
+### Laps - After
+- **Number of rows:** 308
+- **Number of columns:** 30
+- **Columns:** ['Driver', 'LapTime', 'LapNumber', 'Stint', 'PitOutTime', 'PitInTime', 'Sector1Time', 'Sector2Time', 'Sector3Time', 'SpeedI1', 'SpeedI2', 'SpeedFL', 'SpeedST', 'IsPersonalBest', 'Compound', 'TyreLife', 'FreshTyre', 'Team', 'LapStartTime', 'TrackStatus', 'Position', 'Deleted', 'DeletedReason', 'IsAccurate', 'MissingSector1', 'MissingSector2', 'MissingSector3', 'IsInLap', 'IsOutLap', 'TrackData']
+- **Duplicated Values:** 0
+- **Null Values:** {'Driver': 0, 'LapTime': 73, 'LapNumber': 0, 'Stint': 0, 'PitOutTime': 303, 'PitInTime': 303, 'Sector1Time': 20, 'Sector2Time': 1, 'Sector3Time': 0, 'SpeedI1': 0, 'SpeedI2': 0, 'SpeedFL': 5, 'SpeedST': 0, 'IsPersonalBest': 0, 'Compound': 0, 'TyreLife': 0, 'FreshTyre': 0, 'Team': 0, 'LapStartTime': 0, 'TrackStatus': 0, 'Position': 0, 'Deleted': 308, 'DeletedReason': 0, 'IsAccurate': 0, 'MissingSector1': 0, 'MissingSector2': 0, 'MissingSector3': 0, 'IsInLap': 0, 'IsOutLap': 0, 'TrackData': 0}
+
+### Telemetry - Before
+- **Number of rows:** 281530
+- **Number of columns:** 20
+- **Columns:** ['Date', 'SessionTime', 'DriverAhead', 'DistanceToDriverAhead', 'Time', 'RPM', 'Speed', 'nGear', 'Throttle', 'Brake', 'DRS', 'Source', 'Distance', 'RelativeDistance', 'Status', 'X', 'Y', 'Z', 'Driver', 'LapNumber']
+- **Duplicated Values:** 0
+- **Null Values:** {'Date': 0, 'SessionTime': 0, 'DriverAhead': 0, 'DistanceToDriverAhead': 11392, 'Time': 0, 'RPM': 0, 'Speed': 0, 'nGear': 0, 'Throttle': 0, 'Brake': 0, 'DRS': 0, 'Source': 0, 'Distance': 0, 'RelativeDistance': 0, 'Status': 0, 'X': 0, 'Y': 0, 'Z': 0, 'Driver': 0, 'LapNumber': 0}
+
+### Telemetry - After
+- **Number of rows:** 8797
+- **Number of columns:** 18
+- **Columns:** ['Date', 'Speed', 'RPM', 'Throttle', 'X', 'Y', 'Z', 'nGear', 'DRS', 'Brake', 'SessionTime', 'DriverAhead', 'Time', 'Source', 'Distance', 'Status', 'Driver', 'LapNumber']
+- **Duplicated Values:** 0
+- **Null Values:** {'Date': 0, 'Speed': 0, 'RPM': 0, 'Throttle': 0, 'X': 0, 'Y': 0, 'Z': 0, 'nGear': 0, 'DRS': 0, 'Brake': 0, 'SessionTime': 0, 'DriverAhead': 0, 'Time': 0, 'Source': 0, 'Distance': 0, 'Status': 0, 'Driver': 0, 'LapNumber': 0}
+
+### Weather - Before
+- **Number of rows:** 82
+- **Number of columns:** 8
+- **Columns:** ['Time', 'AirTemp', 'Humidity', 'Pressure', 'Rainfall', 'TrackTemp', 'WindDirection', 'WindSpeed']
+- **Duplicated Values:** 0
+- **Null Values:** {'Time': 0, 'AirTemp': 0, 'Humidity': 0, 'Pressure': 0, 'Rainfall': 0, 'TrackTemp': 0, 'WindDirection': 0, 'WindSpeed': 0}
+
+### Weather - After
+- **Number of rows:** 82
+- **Number of columns:** 8
+- **Columns:** ['Time', 'AirTemp', 'Humidity', 'Pressure', 'Rainfall', 'TrackTemp', 'WindDirection', 'WindSpeed']
+- **Duplicated Values:** 0
+- **Null Values:** {'Time': 0, 'AirTemp': 0, 'Humidity': 0, 'Pressure': 0, 'Rainfall': 0, 'TrackTemp': 0, 'WindDirection': 0, 'WindSpeed': 0}
+
+### Results - Before
+- **Number of rows:** 20
+- **Number of columns:** 22
+- **Columns:** ['DriverNumber', 'BroadcastName', 'Abbreviation', 'DriverId', 'TeamName', 'TeamColor', 'TeamId', 'FirstName', 'LastName', 'FullName', 'HeadshotUrl', 'CountryCode', 'Position', 'ClassifiedPosition', 'GridPosition', 'Q1', 'Q2', 'Q3', 'Time', 'Status', 'Points', 'Laps']
+- **Duplicated Values:** 0
+- **Null Values:** {'DriverNumber': 0, 'BroadcastName': 0, 'Abbreviation': 0, 'DriverId': 0, 'TeamName': 0, 'TeamColor': 0, 'TeamId': 0, 'FirstName': 0, 'LastName': 0, 'FullName': 0, 'HeadshotUrl': 0, 'CountryCode': 0, 'Position': 0, 'ClassifiedPosition': 0, 'GridPosition': 0, 'Q1': 0, 'Q2': 0, 'Q3': 0, 'Time': 0, 'Status': 0, 'Points': 0, 'Laps': 0}
+
+### Results - After
+- **Number of rows:** 20
+- **Number of columns:** 13
+- **Columns:** ['DriverNumber', 'DriverId', 'TeamName', 'TeamColor', 'TeamId', 'FullName', 'Position', 'GridPosition', 'Time', 'Status', 'Points', 'Laps', 'RaceOutcome']
+- **Duplicated Values:** 0
+- **Null Values:** {'DriverNumber': 0, 'DriverId': 0, 'TeamName': 0, 'TeamColor': 0, 'TeamId': 0, 'FullName': 0, 'Position': 1, 'GridPosition': 1, 'Time': 2, 'Status': 0, 'Points': 0, 'Laps': 0, 'RaceOutcome': 0}
+
+## 2023 - Round 9 Austrian Grand Prix (Sprint)
+### Laps - Before
+- **Number of rows:** 480
+- **Number of columns:** 31
+- **Columns:** ['Time', 'Driver', 'DriverNumber', 'LapTime', 'LapNumber', 'Stint', 'PitOutTime', 'PitInTime', 'Sector1Time', 'Sector2Time', 'Sector3Time', 'Sector1SessionTime', 'Sector2SessionTime', 'Sector3SessionTime', 'SpeedI1', 'SpeedI2', 'SpeedFL', 'SpeedST', 'IsPersonalBest', 'Compound', 'TyreLife', 'FreshTyre', 'Team', 'LapStartTime', 'LapStartDate', 'TrackStatus', 'Position', 'Deleted', 'DeletedReason', 'FastF1Generated', 'IsAccurate']
+- **Duplicated Values:** 0
+- **Null Values:** {'Time': 0, 'Driver': 0, 'DriverNumber': 0, 'LapTime': 20, 'LapNumber': 0, 'Stint': 0, 'PitOutTime': 468, 'PitInTime': 469, 'Sector1Time': 20, 'Sector2Time': 0, 'Sector3Time': 0, 'Sector1SessionTime': 22, 'Sector2SessionTime': 0, 'Sector3SessionTime': 0, 'SpeedI1': 0, 'SpeedI2': 0, 'SpeedFL': 11, 'SpeedST': 0, 'IsPersonalBest': 0, 'Compound': 0, 'TyreLife': 0, 'FreshTyre': 0, 'Team': 0, 'LapStartTime': 0, 'LapStartDate': 0, 'TrackStatus': 0, 'Position': 0, 'Deleted': 480, 'DeletedReason': 0, 'FastF1Generated': 0, 'IsAccurate': 0}
+
+### Laps - After
+- **Number of rows:** 480
+- **Number of columns:** 30
+- **Columns:** ['Driver', 'LapTime', 'LapNumber', 'Stint', 'PitOutTime', 'PitInTime', 'Sector1Time', 'Sector2Time', 'Sector3Time', 'SpeedI1', 'SpeedI2', 'SpeedFL', 'SpeedST', 'IsPersonalBest', 'Compound', 'TyreLife', 'FreshTyre', 'Team', 'LapStartTime', 'TrackStatus', 'Position', 'Deleted', 'DeletedReason', 'IsAccurate', 'MissingSector1', 'MissingSector2', 'MissingSector3', 'IsInLap', 'IsOutLap', 'TrackData']
+- **Duplicated Values:** 0
+- **Null Values:** {'Driver': 0, 'LapTime': 20, 'LapNumber': 0, 'Stint': 0, 'PitOutTime': 468, 'PitInTime': 469, 'Sector1Time': 20, 'Sector2Time': 0, 'Sector3Time': 0, 'SpeedI1': 0, 'SpeedI2': 0, 'SpeedFL': 11, 'SpeedST': 0, 'IsPersonalBest': 0, 'Compound': 0, 'TyreLife': 0, 'FreshTyre': 0, 'Team': 0, 'LapStartTime': 0, 'TrackStatus': 0, 'Position': 0, 'Deleted': 480, 'DeletedReason': 0, 'IsAccurate': 0, 'MissingSector1': 0, 'MissingSector2': 0, 'MissingSector3': 0, 'IsInLap': 0, 'IsOutLap': 0, 'TrackData': 0}
+
+### Telemetry - Before
+- **Number of rows:** 283679
+- **Number of columns:** 20
+- **Columns:** ['Date', 'SessionTime', 'DriverAhead', 'DistanceToDriverAhead', 'Time', 'RPM', 'Speed', 'nGear', 'Throttle', 'Brake', 'DRS', 'Source', 'Distance', 'RelativeDistance', 'Status', 'X', 'Y', 'Z', 'Driver', 'LapNumber']
+- **Duplicated Values:** 0
+- **Null Values:** {'Date': 0, 'SessionTime': 0, 'DriverAhead': 0, 'DistanceToDriverAhead': 11454, 'Time': 0, 'RPM': 0, 'Speed': 0, 'nGear': 0, 'Throttle': 0, 'Brake': 0, 'DRS': 0, 'Source': 0, 'Distance': 0, 'RelativeDistance': 0, 'Status': 0, 'X': 0, 'Y': 0, 'Z': 0, 'Driver': 0, 'LapNumber': 0}
+
+### Telemetry - After
+- **Number of rows:** 5621
+- **Number of columns:** 18
+- **Columns:** ['Date', 'Speed', 'RPM', 'Throttle', 'X', 'Y', 'Z', 'nGear', 'DRS', 'Brake', 'SessionTime', 'DriverAhead', 'Time', 'Source', 'Distance', 'Status', 'Driver', 'LapNumber']
+- **Duplicated Values:** 0
+- **Null Values:** {'Date': 0, 'Speed': 0, 'RPM': 0, 'Throttle': 0, 'X': 0, 'Y': 0, 'Z': 0, 'nGear': 0, 'DRS': 0, 'Brake': 0, 'SessionTime': 0, 'DriverAhead': 0, 'Time': 0, 'Source': 0, 'Distance': 0, 'Status': 0, 'Driver': 0, 'LapNumber': 0}
+
+### Weather - Before
+- **Number of rows:** 97
+- **Number of columns:** 8
+- **Columns:** ['Time', 'AirTemp', 'Humidity', 'Pressure', 'Rainfall', 'TrackTemp', 'WindDirection', 'WindSpeed']
+- **Duplicated Values:** 0
+- **Null Values:** {'Time': 0, 'AirTemp': 0, 'Humidity': 0, 'Pressure': 0, 'Rainfall': 0, 'TrackTemp': 0, 'WindDirection': 0, 'WindSpeed': 0}
+
+### Weather - After
+- **Number of rows:** 97
+- **Number of columns:** 8
+- **Columns:** ['Time', 'AirTemp', 'Humidity', 'Pressure', 'Rainfall', 'TrackTemp', 'WindDirection', 'WindSpeed']
+- **Duplicated Values:** 0
+- **Null Values:** {'Time': 0, 'AirTemp': 0, 'Humidity': 0, 'Pressure': 0, 'Rainfall': 0, 'TrackTemp': 0, 'WindDirection': 0, 'WindSpeed': 0}
+
+### Results - Before
+- **Number of rows:** 20
+- **Number of columns:** 22
+- **Columns:** ['DriverNumber', 'BroadcastName', 'Abbreviation', 'DriverId', 'TeamName', 'TeamColor', 'TeamId', 'FirstName', 'LastName', 'FullName', 'HeadshotUrl', 'CountryCode', 'Position', 'ClassifiedPosition', 'GridPosition', 'Q1', 'Q2', 'Q3', 'Time', 'Status', 'Points', 'Laps']
+- **Duplicated Values:** 0
+- **Null Values:** {'DriverNumber': 0, 'BroadcastName': 0, 'Abbreviation': 0, 'DriverId': 0, 'TeamName': 0, 'TeamColor': 0, 'TeamId': 0, 'FirstName': 0, 'LastName': 0, 'FullName': 0, 'HeadshotUrl': 0, 'CountryCode': 0, 'Position': 0, 'ClassifiedPosition': 0, 'GridPosition': 0, 'Q1': 0, 'Q2': 0, 'Q3': 0, 'Time': 0, 'Status': 0, 'Points': 0, 'Laps': 0}
+
+### Results - After
+- **Number of rows:** 20
+- **Number of columns:** 13
+- **Columns:** ['DriverNumber', 'DriverId', 'TeamName', 'TeamColor', 'TeamId', 'FullName', 'Position', 'GridPosition', 'Time', 'Status', 'Points', 'Laps', 'RaceOutcome']
+- **Duplicated Values:** 0
+- **Null Values:** {'DriverNumber': 0, 'DriverId': 0, 'TeamName': 0, 'TeamColor': 0, 'TeamId': 0, 'FullName': 0, 'Position': 0, 'GridPosition': 0, 'Time': 0, 'Status': 0, 'Points': 0, 'Laps': 0, 'RaceOutcome': 0}
+
