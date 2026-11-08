@@ -8,10 +8,10 @@
 
 ### Laps - After
 - **Number of rows:** 971
-- **Number of columns:** 25
-- **Columns:** ['Driver', 'LapTime', 'LapNumber', 'Stint', 'PitOutTime', 'PitInTime', 'Sector1Time', 'Sector2Time', 'Sector3Time', 'IsPersonalBest', 'Compound', 'TyreLife', 'FreshTyre', 'Team', 'TrackStatus', 'Position', 'Deleted', 'DeletedReason', 'IsAccurate', 'MissingSector1', 'MissingSector2', 'MissingSector3', 'IsInLap', 'IsOutLap', 'TrackData']
+- **Number of columns:** 30
+- **Columns:** ['Driver', 'LapTime', 'LapNumber', 'Stint', 'PitOutTime', 'PitInTime', 'Sector1Time', 'Sector2Time', 'Sector3Time', 'SpeedI1', 'SpeedI2', 'SpeedFL', 'SpeedST', 'IsPersonalBest', 'Compound', 'TyreLife', 'FreshTyre', 'Team', 'LapStartTime', 'TrackStatus', 'Position', 'Deleted', 'DeletedReason', 'IsAccurate', 'MissingSector1', 'MissingSector2', 'MissingSector3', 'IsInLap', 'IsOutLap', 'TrackData']
 - **Duplicated Values:** 0
-- **Null Values:** {'Driver': 0, 'LapTime': 5, 'LapNumber': 0, 'Stint': 0, 'PitOutTime': 947, 'PitInTime': 945, 'Sector1Time': 21, 'Sector2Time': 1, 'Sector3Time': 1, 'IsPersonalBest': 0, 'Compound': 0, 'TyreLife': 0, 'FreshTyre': 0, 'Team': 0, 'TrackStatus': 0, 'Position': 1, 'Deleted': 971, 'DeletedReason': 1, 'IsAccurate': 0, 'MissingSector1': 0, 'MissingSector2': 0, 'MissingSector3': 0, 'IsInLap': 0, 'IsOutLap': 0, 'TrackData': 0}
+- **Null Values:** {'Driver': 0, 'LapTime': 5, 'LapNumber': 0, 'Stint': 0, 'PitOutTime': 947, 'PitInTime': 945, 'Sector1Time': 21, 'Sector2Time': 1, 'Sector3Time': 1, 'SpeedI1': 1, 'SpeedI2': 1, 'SpeedFL': 27, 'SpeedST': 1, 'IsPersonalBest': 0, 'Compound': 0, 'TyreLife': 0, 'FreshTyre': 0, 'Team': 0, 'LapStartTime': 0, 'TrackStatus': 0, 'Position': 1, 'Deleted': 971, 'DeletedReason': 1, 'IsAccurate': 0, 'MissingSector1': 0, 'MissingSector2': 0, 'MissingSector3': 0, 'IsInLap': 0, 'IsOutLap': 0, 'TrackData': 0}
 
 ### Telemetry - Before
 - **Number of rows:** 730641
@@ -65,10 +65,10 @@
 
 ### Laps - After
 - **Number of rows:** 1252
-- **Number of columns:** 25
-- **Columns:** ['Driver', 'LapTime', 'LapNumber', 'Stint', 'PitOutTime', 'PitInTime', 'Sector1Time', 'Sector2Time', 'Sector3Time', 'IsPersonalBest', 'Compound', 'TyreLife', 'FreshTyre', 'Team', 'TrackStatus', 'Position', 'Deleted', 'DeletedReason', 'IsAccurate', 'MissingSector1', 'MissingSector2', 'MissingSector3', 'IsInLap', 'IsOutLap', 'TrackData']
+- **Number of columns:** 30
+- **Columns:** ['Driver', 'LapTime', 'LapNumber', 'Stint', 'PitOutTime', 'PitInTime', 'Sector1Time', 'Sector2Time', 'Sector3Time', 'SpeedI1', 'SpeedI2', 'SpeedFL', 'SpeedST', 'IsPersonalBest', 'Compound', 'TyreLife', 'FreshTyre', 'Team', 'LapStartTime', 'TrackStatus', 'Position', 'Deleted', 'DeletedReason', 'IsAccurate', 'MissingSector1', 'MissingSector2', 'MissingSector3', 'IsInLap', 'IsOutLap', 'TrackData']
 - **Duplicated Values:** 0
-- **Null Values:** {'Driver': 0, 'LapTime': 0, 'LapNumber': 0, 'Stint': 0, 'PitOutTime': 1216, 'PitInTime': 1213, 'Sector1Time': 20, 'Sector2Time': 0, 'Sector3Time': 0, 'IsPersonalBest': 0, 'Compound': 0, 'TyreLife': 0, 'FreshTyre': 0, 'Team': 0, 'TrackStatus': 0, 'Position': 0, 'Deleted': 1252, 'DeletedReason': 0, 'IsAccurate': 0, 'MissingSector1': 0, 'MissingSector2': 0, 'MissingSector3': 0, 'IsInLap': 0, 'IsOutLap': 0, 'TrackData': 0}
+- **Null Values:** {'Driver': 0, 'LapTime': 0, 'LapNumber': 0, 'Stint': 0, 'PitOutTime': 1216, 'PitInTime': 1213, 'Sector1Time': 20, 'Sector2Time': 0, 'Sector3Time': 0, 'SpeedI1': 0, 'SpeedI2': 0, 'SpeedFL': 39, 'SpeedST': 0, 'IsPersonalBest': 0, 'Compound': 0, 'TyreLife': 0, 'FreshTyre': 0, 'Team': 0, 'LapStartTime': 0, 'TrackStatus': 0, 'Position': 0, 'Deleted': 1252, 'DeletedReason': 0, 'IsAccurate': 0, 'MissingSector1': 0, 'MissingSector2': 0, 'MissingSector3': 0, 'IsInLap': 0, 'IsOutLap': 0, 'TrackData': 0}
 
 ### Telemetry - Before
 - **Number of rows:** 811082
@@ -122,10 +122,10 @@
 
 ### Laps - After
 - **Number of rows:** 816
-- **Number of columns:** 25
-- **Columns:** ['Driver', 'LapTime', 'LapNumber', 'Stint', 'PitOutTime', 'PitInTime', 'Sector1Time', 'Sector2Time', 'Sector3Time', 'IsPersonalBest', 'Compound', 'TyreLife', 'FreshTyre', 'Team', 'TrackStatus', 'Position', 'Deleted', 'DeletedReason', 'IsAccurate', 'MissingSector1', 'MissingSector2', 'MissingSector3', 'IsInLap', 'IsOutLap', 'TrackData']
+- **Number of columns:** 30
+- **Columns:** ['Driver', 'LapTime', 'LapNumber', 'Stint', 'PitOutTime', 'PitInTime', 'Sector1Time', 'Sector2Time', 'Sector3Time', 'SpeedI1', 'SpeedI2', 'SpeedFL', 'SpeedST', 'IsPersonalBest', 'Compound', 'TyreLife', 'FreshTyre', 'Team', 'LapStartTime', 'TrackStatus', 'Position', 'Deleted', 'DeletedReason', 'IsAccurate', 'MissingSector1', 'MissingSector2', 'MissingSector3', 'IsInLap', 'IsOutLap', 'TrackData']
 - **Duplicated Values:** 0
-- **Null Values:** {'Driver': 0, 'LapTime': 1, 'LapNumber': 0, 'Stint': 0, 'PitOutTime': 778, 'PitInTime': 778, 'Sector1Time': 20, 'Sector2Time': 1, 'Sector3Time': 1, 'IsPersonalBest': 0, 'Compound': 0, 'TyreLife': 0, 'FreshTyre': 0, 'Team': 0, 'TrackStatus': 0, 'Position': 1, 'Deleted': 816, 'DeletedReason': 0, 'IsAccurate': 0, 'MissingSector1': 0, 'MissingSector2': 0, 'MissingSector3': 0, 'IsInLap': 0, 'IsOutLap': 0, 'TrackData': 0}
+- **Null Values:** {'Driver': 0, 'LapTime': 1, 'LapNumber': 0, 'Stint': 0, 'PitOutTime': 778, 'PitInTime': 778, 'Sector1Time': 20, 'Sector2Time': 1, 'Sector3Time': 1, 'SpeedI1': 1, 'SpeedI2': 1, 'SpeedFL': 39, 'SpeedST': 1, 'IsPersonalBest': 0, 'Compound': 0, 'TyreLife': 0, 'FreshTyre': 0, 'Team': 0, 'LapStartTime': 0, 'TrackStatus': 0, 'Position': 1, 'Deleted': 816, 'DeletedReason': 0, 'IsAccurate': 0, 'MissingSector1': 0, 'MissingSector2': 0, 'MissingSector3': 0, 'IsInLap': 0, 'IsOutLap': 0, 'TrackData': 0}
 
 ### Telemetry - Before
 - **Number of rows:** 705818
@@ -179,10 +179,10 @@
 
 ### Laps - After
 - **Number of rows:** 1343
-- **Number of columns:** 25
-- **Columns:** ['Driver', 'LapTime', 'LapNumber', 'Stint', 'PitOutTime', 'PitInTime', 'Sector1Time', 'Sector2Time', 'Sector3Time', 'IsPersonalBest', 'Compound', 'TyreLife', 'FreshTyre', 'Team', 'TrackStatus', 'Position', 'Deleted', 'DeletedReason', 'IsAccurate', 'MissingSector1', 'MissingSector2', 'MissingSector3', 'IsInLap', 'IsOutLap', 'TrackData']
+- **Number of columns:** 30
+- **Columns:** ['Driver', 'LapTime', 'LapNumber', 'Stint', 'PitOutTime', 'PitInTime', 'Sector1Time', 'Sector2Time', 'Sector3Time', 'SpeedI1', 'SpeedI2', 'SpeedFL', 'SpeedST', 'IsPersonalBest', 'Compound', 'TyreLife', 'FreshTyre', 'Team', 'LapStartTime', 'TrackStatus', 'Position', 'Deleted', 'DeletedReason', 'IsAccurate', 'MissingSector1', 'MissingSector2', 'MissingSector3', 'IsInLap', 'IsOutLap', 'TrackData']
 - **Duplicated Values:** 0
-- **Null Values:** {'Driver': 0, 'LapTime': 33, 'LapNumber': 0, 'Stint': 0, 'PitOutTime': 1241, 'PitInTime': 1241, 'Sector1Time': 39, 'Sector2Time': 2, 'Sector3Time': 2, 'IsPersonalBest': 0, 'Compound': 0, 'TyreLife': 0, 'FreshTyre': 0, 'Team': 0, 'TrackStatus': 0, 'Position': 2, 'Deleted': 1343, 'DeletedReason': 2, 'IsAccurate': 0, 'MissingSector1': 0, 'MissingSector2': 0, 'MissingSector3': 0, 'IsInLap': 0, 'IsOutLap': 0, 'TrackData': 0}
+- **Null Values:** {'Driver': 0, 'LapTime': 33, 'LapNumber': 0, 'Stint': 0, 'PitOutTime': 1241, 'PitInTime': 1241, 'Sector1Time': 39, 'Sector2Time': 2, 'Sector3Time': 2, 'SpeedI1': 2, 'SpeedI2': 2, 'SpeedFL': 104, 'SpeedST': 17, 'IsPersonalBest': 0, 'Compound': 0, 'TyreLife': 0, 'FreshTyre': 0, 'Team': 0, 'LapStartTime': 0, 'TrackStatus': 0, 'Position': 2, 'Deleted': 1343, 'DeletedReason': 2, 'IsAccurate': 0, 'MissingSector1': 0, 'MissingSector2': 0, 'MissingSector3': 0, 'IsInLap': 0, 'IsOutLap': 0, 'TrackData': 0}
 
 ### Telemetry - Before
 - **Number of rows:** 1126733
@@ -236,10 +236,10 @@
 
 ### Laps - After
 - **Number of rows:** 957
-- **Number of columns:** 25
-- **Columns:** ['Driver', 'LapTime', 'LapNumber', 'Stint', 'PitOutTime', 'PitInTime', 'Sector1Time', 'Sector2Time', 'Sector3Time', 'IsPersonalBest', 'Compound', 'TyreLife', 'FreshTyre', 'Team', 'TrackStatus', 'Position', 'Deleted', 'DeletedReason', 'IsAccurate', 'MissingSector1', 'MissingSector2', 'MissingSector3', 'IsInLap', 'IsOutLap', 'TrackData']
+- **Number of columns:** 30
+- **Columns:** ['Driver', 'LapTime', 'LapNumber', 'Stint', 'PitOutTime', 'PitInTime', 'Sector1Time', 'Sector2Time', 'Sector3Time', 'SpeedI1', 'SpeedI2', 'SpeedFL', 'SpeedST', 'IsPersonalBest', 'Compound', 'TyreLife', 'FreshTyre', 'Team', 'LapStartTime', 'TrackStatus', 'Position', 'Deleted', 'DeletedReason', 'IsAccurate', 'MissingSector1', 'MissingSector2', 'MissingSector3', 'IsInLap', 'IsOutLap', 'TrackData']
 - **Duplicated Values:** 0
-- **Null Values:** {'Driver': 0, 'LapTime': 9, 'LapNumber': 0, 'Stint': 0, 'PitOutTime': 932, 'PitInTime': 931, 'Sector1Time': 28, 'Sector2Time': 9, 'Sector3Time': 9, 'IsPersonalBest': 0, 'Compound': 0, 'TyreLife': 0, 'FreshTyre': 0, 'Team': 0, 'TrackStatus': 0, 'Position': 9, 'Deleted': 957, 'DeletedReason': 9, 'IsAccurate': 0, 'MissingSector1': 0, 'MissingSector2': 0, 'MissingSector3': 0, 'IsInLap': 0, 'IsOutLap': 0, 'TrackData': 0}
+- **Null Values:** {'Driver': 0, 'LapTime': 9, 'LapNumber': 0, 'Stint': 0, 'PitOutTime': 932, 'PitInTime': 931, 'Sector1Time': 28, 'Sector2Time': 9, 'Sector3Time': 9, 'SpeedI1': 9, 'SpeedI2': 9, 'SpeedFL': 35, 'SpeedST': 9, 'IsPersonalBest': 0, 'Compound': 0, 'TyreLife': 0, 'FreshTyre': 0, 'Team': 0, 'LapStartTime': 0, 'TrackStatus': 0, 'Position': 9, 'Deleted': 957, 'DeletedReason': 9, 'IsAccurate': 0, 'MissingSector1': 0, 'MissingSector2': 0, 'MissingSector3': 0, 'IsInLap': 0, 'IsOutLap': 0, 'TrackData': 0}
 
 ### Telemetry - Before
 - **Number of rows:** 637716
@@ -293,10 +293,10 @@
 
 ### Laps - After
 - **Number of rows:** 1088
-- **Number of columns:** 25
-- **Columns:** ['Driver', 'LapTime', 'LapNumber', 'Stint', 'PitOutTime', 'PitInTime', 'Sector1Time', 'Sector2Time', 'Sector3Time', 'IsPersonalBest', 'Compound', 'TyreLife', 'FreshTyre', 'Team', 'TrackStatus', 'Position', 'Deleted', 'DeletedReason', 'IsAccurate', 'MissingSector1', 'MissingSector2', 'MissingSector3', 'IsInLap', 'IsOutLap', 'TrackData']
+- **Number of columns:** 30
+- **Columns:** ['Driver', 'LapTime', 'LapNumber', 'Stint', 'PitOutTime', 'PitInTime', 'Sector1Time', 'Sector2Time', 'Sector3Time', 'SpeedI1', 'SpeedI2', 'SpeedFL', 'SpeedST', 'IsPersonalBest', 'Compound', 'TyreLife', 'FreshTyre', 'Team', 'LapStartTime', 'TrackStatus', 'Position', 'Deleted', 'DeletedReason', 'IsAccurate', 'MissingSector1', 'MissingSector2', 'MissingSector3', 'IsInLap', 'IsOutLap', 'TrackData']
 - **Duplicated Values:** 0
-- **Null Values:** {'Driver': 0, 'LapTime': 26, 'LapNumber': 0, 'Stint': 0, 'PitOutTime': 1062, 'PitInTime': 1063, 'Sector1Time': 23, 'Sector2Time': 4, 'Sector3Time': 4, 'IsPersonalBest': 0, 'Compound': 0, 'TyreLife': 0, 'FreshTyre': 0, 'Team': 0, 'TrackStatus': 0, 'Position': 4, 'Deleted': 1088, 'DeletedReason': 3, 'IsAccurate': 0, 'MissingSector1': 0, 'MissingSector2': 0, 'MissingSector3': 0, 'IsInLap': 0, 'IsOutLap': 0, 'TrackData': 0}
+- **Null Values:** {'Driver': 0, 'LapTime': 26, 'LapNumber': 0, 'Stint': 0, 'PitOutTime': 1062, 'PitInTime': 1063, 'Sector1Time': 23, 'Sector2Time': 4, 'Sector3Time': 4, 'SpeedI1': 4, 'SpeedI2': 4, 'SpeedFL': 29, 'SpeedST': 5, 'IsPersonalBest': 0, 'Compound': 0, 'TyreLife': 0, 'FreshTyre': 0, 'Team': 0, 'LapStartTime': 0, 'TrackStatus': 0, 'Position': 4, 'Deleted': 1088, 'DeletedReason': 3, 'IsAccurate': 0, 'MissingSector1': 0, 'MissingSector2': 0, 'MissingSector3': 0, 'IsInLap': 0, 'IsOutLap': 0, 'TrackData': 0}
 
 ### Telemetry - Before
 - **Number of rows:** 855630
@@ -350,10 +350,10 @@
 
 ### Laps - After
 - **Number of rows:** 880
-- **Number of columns:** 25
-- **Columns:** ['Driver', 'LapTime', 'LapNumber', 'Stint', 'PitOutTime', 'PitInTime', 'Sector1Time', 'Sector2Time', 'Sector3Time', 'IsPersonalBest', 'Compound', 'TyreLife', 'FreshTyre', 'Team', 'TrackStatus', 'Position', 'Deleted', 'DeletedReason', 'IsAccurate', 'MissingSector1', 'MissingSector2', 'MissingSector3', 'IsInLap', 'IsOutLap', 'TrackData']
+- **Number of columns:** 30
+- **Columns:** ['Driver', 'LapTime', 'LapNumber', 'Stint', 'PitOutTime', 'PitInTime', 'Sector1Time', 'Sector2Time', 'Sector3Time', 'SpeedI1', 'SpeedI2', 'SpeedFL', 'SpeedST', 'IsPersonalBest', 'Compound', 'TyreLife', 'FreshTyre', 'Team', 'LapStartTime', 'TrackStatus', 'Position', 'Deleted', 'DeletedReason', 'IsAccurate', 'MissingSector1', 'MissingSector2', 'MissingSector3', 'IsInLap', 'IsOutLap', 'TrackData']
 - **Duplicated Values:** 0
-- **Null Values:** {'Driver': 0, 'LapTime': 61, 'LapNumber': 0, 'Stint': 0, 'PitOutTime': 836, 'PitInTime': 832, 'Sector1Time': 22, 'Sector2Time': 0, 'Sector3Time': 0, 'IsPersonalBest': 0, 'Compound': 0, 'TyreLife': 0, 'FreshTyre': 0, 'Team': 0, 'TrackStatus': 0, 'Position': 0, 'Deleted': 880, 'DeletedReason': 0, 'IsAccurate': 0, 'MissingSector1': 0, 'MissingSector2': 0, 'MissingSector3': 0, 'IsInLap': 0, 'IsOutLap': 0, 'TrackData': 0}
+- **Null Values:** {'Driver': 0, 'LapTime': 61, 'LapNumber': 0, 'Stint': 0, 'PitOutTime': 836, 'PitInTime': 832, 'Sector1Time': 22, 'Sector2Time': 0, 'Sector3Time': 0, 'SpeedI1': 0, 'SpeedI2': 0, 'SpeedFL': 48, 'SpeedST': 0, 'IsPersonalBest': 0, 'Compound': 0, 'TyreLife': 0, 'FreshTyre': 0, 'Team': 0, 'LapStartTime': 0, 'TrackStatus': 0, 'Position': 0, 'Deleted': 880, 'DeletedReason': 0, 'IsAccurate': 0, 'MissingSector1': 0, 'MissingSector2': 0, 'MissingSector3': 0, 'IsInLap': 0, 'IsOutLap': 0, 'TrackData': 0}
 
 ### Telemetry - Before
 - **Number of rows:** 718035
@@ -407,10 +407,10 @@
 
 ### Laps - After
 - **Number of rows:** 1006
-- **Number of columns:** 25
-- **Columns:** ['Driver', 'LapTime', 'LapNumber', 'Stint', 'PitOutTime', 'PitInTime', 'Sector1Time', 'Sector2Time', 'Sector3Time', 'IsPersonalBest', 'Compound', 'TyreLife', 'FreshTyre', 'Team', 'TrackStatus', 'Position', 'Deleted', 'DeletedReason', 'IsAccurate', 'MissingSector1', 'MissingSector2', 'MissingSector3', 'IsInLap', 'IsOutLap', 'TrackData']
+- **Number of columns:** 30
+- **Columns:** ['Driver', 'LapTime', 'LapNumber', 'Stint', 'PitOutTime', 'PitInTime', 'Sector1Time', 'Sector2Time', 'Sector3Time', 'SpeedI1', 'SpeedI2', 'SpeedFL', 'SpeedST', 'IsPersonalBest', 'Compound', 'TyreLife', 'FreshTyre', 'Team', 'LapStartTime', 'TrackStatus', 'Position', 'Deleted', 'DeletedReason', 'IsAccurate', 'MissingSector1', 'MissingSector2', 'MissingSector3', 'IsInLap', 'IsOutLap', 'TrackData']
 - **Duplicated Values:** 0
-- **Null Values:** {'Driver': 0, 'LapTime': 6, 'LapNumber': 0, 'Stint': 0, 'PitOutTime': 951, 'PitInTime': 951, 'Sector1Time': 19, 'Sector2Time': 1, 'Sector3Time': 1, 'IsPersonalBest': 0, 'Compound': 0, 'TyreLife': 0, 'FreshTyre': 0, 'Team': 0, 'TrackStatus': 0, 'Position': 1, 'Deleted': 1006, 'DeletedReason': 0, 'IsAccurate': 0, 'MissingSector1': 0, 'MissingSector2': 0, 'MissingSector3': 0, 'IsInLap': 0, 'IsOutLap': 0, 'TrackData': 0}
+- **Null Values:** {'Driver': 0, 'LapTime': 6, 'LapNumber': 0, 'Stint': 0, 'PitOutTime': 951, 'PitInTime': 951, 'Sector1Time': 19, 'Sector2Time': 1, 'Sector3Time': 1, 'SpeedI1': 1, 'SpeedI2': 1, 'SpeedFL': 56, 'SpeedST': 1, 'IsPersonalBest': 0, 'Compound': 0, 'TyreLife': 0, 'FreshTyre': 0, 'Team': 0, 'LapStartTime': 0, 'TrackStatus': 0, 'Position': 1, 'Deleted': 1006, 'DeletedReason': 0, 'IsAccurate': 0, 'MissingSector1': 0, 'MissingSector2': 0, 'MissingSector3': 0, 'IsInLap': 0, 'IsOutLap': 0, 'TrackData': 0}
 
 ### Telemetry - Before
 - **Number of rows:** 716325
@@ -464,10 +464,10 @@
 
 ### Laps - After
 - **Number of rows:** 1014
-- **Number of columns:** 25
-- **Columns:** ['Driver', 'LapTime', 'LapNumber', 'Stint', 'PitOutTime', 'PitInTime', 'Sector1Time', 'Sector2Time', 'Sector3Time', 'IsPersonalBest', 'Compound', 'TyreLife', 'FreshTyre', 'Team', 'TrackStatus', 'Position', 'Deleted', 'DeletedReason', 'IsAccurate', 'MissingSector1', 'MissingSector2', 'MissingSector3', 'IsInLap', 'IsOutLap', 'TrackData']
+- **Number of columns:** 30
+- **Columns:** ['Driver', 'LapTime', 'LapNumber', 'Stint', 'PitOutTime', 'PitInTime', 'Sector1Time', 'Sector2Time', 'Sector3Time', 'SpeedI1', 'SpeedI2', 'SpeedFL', 'SpeedST', 'IsPersonalBest', 'Compound', 'TyreLife', 'FreshTyre', 'Team', 'LapStartTime', 'TrackStatus', 'Position', 'Deleted', 'DeletedReason', 'IsAccurate', 'MissingSector1', 'MissingSector2', 'MissingSector3', 'IsInLap', 'IsOutLap', 'TrackData']
 - **Duplicated Values:** 0
-- **Null Values:** {'Driver': 0, 'LapTime': 0, 'LapNumber': 0, 'Stint': 0, 'PitOutTime': 974, 'PitInTime': 975, 'Sector1Time': 20, 'Sector2Time': 0, 'Sector3Time': 0, 'IsPersonalBest': 0, 'Compound': 0, 'TyreLife': 0, 'FreshTyre': 0, 'Team': 0, 'TrackStatus': 0, 'Position': 0, 'Deleted': 1014, 'DeletedReason': 0, 'IsAccurate': 0, 'MissingSector1': 0, 'MissingSector2': 0, 'MissingSector3': 0, 'IsInLap': 0, 'IsOutLap': 0, 'TrackData': 0}
+- **Null Values:** {'Driver': 0, 'LapTime': 0, 'LapNumber': 0, 'Stint': 0, 'PitOutTime': 974, 'PitInTime': 975, 'Sector1Time': 20, 'Sector2Time': 0, 'Sector3Time': 0, 'SpeedI1': 0, 'SpeedI2': 0, 'SpeedFL': 39, 'SpeedST': 0, 'IsPersonalBest': 0, 'Compound': 0, 'TyreLife': 0, 'FreshTyre': 0, 'Team': 0, 'LapStartTime': 0, 'TrackStatus': 0, 'Position': 0, 'Deleted': 1014, 'DeletedReason': 0, 'IsAccurate': 0, 'MissingSector1': 0, 'MissingSector2': 0, 'MissingSector3': 0, 'IsInLap': 0, 'IsOutLap': 0, 'TrackData': 0}
 
 ### Telemetry - Before
 - **Number of rows:** 795493
@@ -521,10 +521,10 @@
 
 ### Laps - After
 - **Number of rows:** 1282
-- **Number of columns:** 25
-- **Columns:** ['Driver', 'LapTime', 'LapNumber', 'Stint', 'PitOutTime', 'PitInTime', 'Sector1Time', 'Sector2Time', 'Sector3Time', 'IsPersonalBest', 'Compound', 'TyreLife', 'FreshTyre', 'Team', 'TrackStatus', 'Position', 'Deleted', 'DeletedReason', 'IsAccurate', 'MissingSector1', 'MissingSector2', 'MissingSector3', 'IsInLap', 'IsOutLap', 'TrackData']
+- **Number of columns:** 30
+- **Columns:** ['Driver', 'LapTime', 'LapNumber', 'Stint', 'PitOutTime', 'PitInTime', 'Sector1Time', 'Sector2Time', 'Sector3Time', 'SpeedI1', 'SpeedI2', 'SpeedFL', 'SpeedST', 'IsPersonalBest', 'Compound', 'TyreLife', 'FreshTyre', 'Team', 'LapStartTime', 'TrackStatus', 'Position', 'Deleted', 'DeletedReason', 'IsAccurate', 'MissingSector1', 'MissingSector2', 'MissingSector3', 'IsInLap', 'IsOutLap', 'TrackData']
 - **Duplicated Values:** 0
-- **Null Values:** {'Driver': 0, 'LapTime': 30, 'LapNumber': 0, 'Stint': 0, 'PitOutTime': 1243, 'PitInTime': 1240, 'Sector1Time': 41, 'Sector2Time': 1, 'Sector3Time': 2, 'IsPersonalBest': 0, 'Compound': 0, 'TyreLife': 0, 'FreshTyre': 0, 'Team': 0, 'TrackStatus': 0, 'Position': 1, 'Deleted': 1282, 'DeletedReason': 1, 'IsAccurate': 0, 'MissingSector1': 0, 'MissingSector2': 0, 'MissingSector3': 0, 'IsInLap': 0, 'IsOutLap': 0, 'TrackData': 0}
+- **Null Values:** {'Driver': 0, 'LapTime': 30, 'LapNumber': 0, 'Stint': 0, 'PitOutTime': 1243, 'PitInTime': 1240, 'Sector1Time': 41, 'Sector2Time': 1, 'Sector3Time': 2, 'SpeedI1': 2, 'SpeedI2': 1, 'SpeedFL': 43, 'SpeedST': 1, 'IsPersonalBest': 0, 'Compound': 0, 'TyreLife': 0, 'FreshTyre': 0, 'Team': 0, 'LapStartTime': 0, 'TrackStatus': 0, 'Position': 1, 'Deleted': 1282, 'DeletedReason': 1, 'IsAccurate': 0, 'MissingSector1': 0, 'MissingSector2': 0, 'MissingSector3': 0, 'IsInLap': 0, 'IsOutLap': 0, 'TrackData': 0}
 
 ### Telemetry - Before
 - **Number of rows:** 856330
@@ -578,10 +578,10 @@
 
 ### Laps - After
 - **Number of rows:** 1056
-- **Number of columns:** 25
-- **Columns:** ['Driver', 'LapTime', 'LapNumber', 'Stint', 'PitOutTime', 'PitInTime', 'Sector1Time', 'Sector2Time', 'Sector3Time', 'IsPersonalBest', 'Compound', 'TyreLife', 'FreshTyre', 'Team', 'TrackStatus', 'Position', 'Deleted', 'DeletedReason', 'IsAccurate', 'MissingSector1', 'MissingSector2', 'MissingSector3', 'IsInLap', 'IsOutLap', 'TrackData']
+- **Number of columns:** 30
+- **Columns:** ['Driver', 'LapTime', 'LapNumber', 'Stint', 'PitOutTime', 'PitInTime', 'Sector1Time', 'Sector2Time', 'Sector3Time', 'SpeedI1', 'SpeedI2', 'SpeedFL', 'SpeedST', 'IsPersonalBest', 'Compound', 'TyreLife', 'FreshTyre', 'Team', 'LapStartTime', 'TrackStatus', 'Position', 'Deleted', 'DeletedReason', 'IsAccurate', 'MissingSector1', 'MissingSector2', 'MissingSector3', 'IsInLap', 'IsOutLap', 'TrackData']
 - **Duplicated Values:** 0
-- **Null Values:** {'Driver': 0, 'LapTime': 1, 'LapNumber': 0, 'Stint': 0, 'PitOutTime': 1006, 'PitInTime': 1004, 'Sector1Time': 21, 'Sector2Time': 1, 'Sector3Time': 1, 'IsPersonalBest': 0, 'Compound': 0, 'TyreLife': 0, 'FreshTyre': 0, 'Team': 0, 'TrackStatus': 0, 'Position': 1, 'Deleted': 1056, 'DeletedReason': 1, 'IsAccurate': 0, 'MissingSector1': 0, 'MissingSector2': 0, 'MissingSector3': 0, 'IsInLap': 0, 'IsOutLap': 0, 'TrackData': 0}
+- **Null Values:** {'Driver': 0, 'LapTime': 1, 'LapNumber': 0, 'Stint': 0, 'PitOutTime': 1006, 'PitInTime': 1004, 'Sector1Time': 21, 'Sector2Time': 1, 'Sector3Time': 1, 'SpeedI1': 1, 'SpeedI2': 1, 'SpeedFL': 53, 'SpeedST': 1, 'IsPersonalBest': 0, 'Compound': 0, 'TyreLife': 0, 'FreshTyre': 0, 'Team': 0, 'LapStartTime': 0, 'TrackStatus': 0, 'Position': 1, 'Deleted': 1056, 'DeletedReason': 1, 'IsAccurate': 0, 'MissingSector1': 0, 'MissingSector2': 0, 'MissingSector3': 0, 'IsInLap': 0, 'IsOutLap': 0, 'TrackData': 0}
 
 ### Telemetry - Before
 - **Number of rows:** 800120
@@ -635,10 +635,10 @@
 
 ### Laps - After
 - **Number of rows:** 1108
-- **Number of columns:** 25
-- **Columns:** ['Driver', 'LapTime', 'LapNumber', 'Stint', 'PitOutTime', 'PitInTime', 'Sector1Time', 'Sector2Time', 'Sector3Time', 'IsPersonalBest', 'Compound', 'TyreLife', 'FreshTyre', 'Team', 'TrackStatus', 'Position', 'Deleted', 'DeletedReason', 'IsAccurate', 'MissingSector1', 'MissingSector2', 'MissingSector3', 'IsInLap', 'IsOutLap', 'TrackData']
+- **Number of columns:** 30
+- **Columns:** ['Driver', 'LapTime', 'LapNumber', 'Stint', 'PitOutTime', 'PitInTime', 'Sector1Time', 'Sector2Time', 'Sector3Time', 'SpeedI1', 'SpeedI2', 'SpeedFL', 'SpeedST', 'IsPersonalBest', 'Compound', 'TyreLife', 'FreshTyre', 'Team', 'LapStartTime', 'TrackStatus', 'Position', 'Deleted', 'DeletedReason', 'IsAccurate', 'MissingSector1', 'MissingSector2', 'MissingSector3', 'IsInLap', 'IsOutLap', 'TrackData']
 - **Duplicated Values:** 0
-- **Null Values:** {'Driver': 0, 'LapTime': 19, 'LapNumber': 0, 'Stint': 0, 'PitOutTime': 1041, 'PitInTime': 1038, 'Sector1Time': 36, 'Sector2Time': 2, 'Sector3Time': 2, 'IsPersonalBest': 0, 'Compound': 0, 'TyreLife': 0, 'FreshTyre': 0, 'Team': 0, 'TrackStatus': 0, 'Position': 2, 'Deleted': 1108, 'DeletedReason': 0, 'IsAccurate': 0, 'MissingSector1': 0, 'MissingSector2': 0, 'MissingSector3': 0, 'IsInLap': 0, 'IsOutLap': 0, 'TrackData': 0}
+- **Null Values:** {'Driver': 0, 'LapTime': 19, 'LapNumber': 0, 'Stint': 0, 'PitOutTime': 1041, 'PitInTime': 1038, 'Sector1Time': 36, 'Sector2Time': 2, 'Sector3Time': 2, 'SpeedI1': 2, 'SpeedI2': 2, 'SpeedFL': 72, 'SpeedST': 17, 'IsPersonalBest': 0, 'Compound': 0, 'TyreLife': 0, 'FreshTyre': 0, 'Team': 0, 'LapStartTime': 0, 'TrackStatus': 0, 'Position': 2, 'Deleted': 1108, 'DeletedReason': 0, 'IsAccurate': 0, 'MissingSector1': 0, 'MissingSector2': 0, 'MissingSector3': 0, 'IsInLap': 0, 'IsOutLap': 0, 'TrackData': 0}
 
 ### Telemetry - Before
 - **Number of rows:** 678854
@@ -692,10 +692,10 @@
 
 ### Laps - After
 - **Number of rows:** 946
-- **Number of columns:** 25
-- **Columns:** ['Driver', 'LapTime', 'LapNumber', 'Stint', 'PitOutTime', 'PitInTime', 'Sector1Time', 'Sector2Time', 'Sector3Time', 'IsPersonalBest', 'Compound', 'TyreLife', 'FreshTyre', 'Team', 'TrackStatus', 'Position', 'Deleted', 'DeletedReason', 'IsAccurate', 'MissingSector1', 'MissingSector2', 'MissingSector3', 'IsInLap', 'IsOutLap', 'TrackData']
+- **Number of columns:** 30
+- **Columns:** ['Driver', 'LapTime', 'LapNumber', 'Stint', 'PitOutTime', 'PitInTime', 'Sector1Time', 'Sector2Time', 'Sector3Time', 'SpeedI1', 'SpeedI2', 'SpeedFL', 'SpeedST', 'IsPersonalBest', 'Compound', 'TyreLife', 'FreshTyre', 'Team', 'LapStartTime', 'TrackStatus', 'Position', 'Deleted', 'DeletedReason', 'IsAccurate', 'MissingSector1', 'MissingSector2', 'MissingSector3', 'IsInLap', 'IsOutLap', 'TrackData']
 - **Duplicated Values:** 0
-- **Null Values:** {'Driver': 0, 'LapTime': 85, 'LapNumber': 0, 'Stint': 0, 'PitOutTime': 915, 'PitInTime': 915, 'Sector1Time': 23, 'Sector2Time': 3, 'Sector3Time': 3, 'IsPersonalBest': 0, 'Compound': 0, 'TyreLife': 0, 'FreshTyre': 0, 'Team': 0, 'TrackStatus': 0, 'Position': 3, 'Deleted': 946, 'DeletedReason': 3, 'IsAccurate': 0, 'MissingSector1': 0, 'MissingSector2': 0, 'MissingSector3': 0, 'IsInLap': 0, 'IsOutLap': 0, 'TrackData': 0}
+- **Null Values:** {'Driver': 0, 'LapTime': 85, 'LapNumber': 0, 'Stint': 0, 'PitOutTime': 915, 'PitInTime': 915, 'Sector1Time': 23, 'Sector2Time': 3, 'Sector3Time': 3, 'SpeedI1': 3, 'SpeedI2': 3, 'SpeedFL': 34, 'SpeedST': 3, 'IsPersonalBest': 0, 'Compound': 0, 'TyreLife': 0, 'FreshTyre': 0, 'Team': 0, 'LapStartTime': 0, 'TrackStatus': 0, 'Position': 3, 'Deleted': 946, 'DeletedReason': 3, 'IsAccurate': 0, 'MissingSector1': 0, 'MissingSector2': 0, 'MissingSector3': 0, 'IsInLap': 0, 'IsOutLap': 0, 'TrackData': 0}
 
 ### Telemetry - Before
 - **Number of rows:** 773585
@@ -749,10 +749,10 @@
 
 ### Laps - After
 - **Number of rows:** 1157
-- **Number of columns:** 25
-- **Columns:** ['Driver', 'LapTime', 'LapNumber', 'Stint', 'PitOutTime', 'PitInTime', 'Sector1Time', 'Sector2Time', 'Sector3Time', 'IsPersonalBest', 'Compound', 'TyreLife', 'FreshTyre', 'Team', 'TrackStatus', 'Position', 'Deleted', 'DeletedReason', 'IsAccurate', 'MissingSector1', 'MissingSector2', 'MissingSector3', 'IsInLap', 'IsOutLap', 'TrackData']
+- **Number of columns:** 30
+- **Columns:** ['Driver', 'LapTime', 'LapNumber', 'Stint', 'PitOutTime', 'PitInTime', 'Sector1Time', 'Sector2Time', 'Sector3Time', 'SpeedI1', 'SpeedI2', 'SpeedFL', 'SpeedST', 'IsPersonalBest', 'Compound', 'TyreLife', 'FreshTyre', 'Team', 'LapStartTime', 'TrackStatus', 'Position', 'Deleted', 'DeletedReason', 'IsAccurate', 'MissingSector1', 'MissingSector2', 'MissingSector3', 'IsInLap', 'IsOutLap', 'TrackData']
 - **Duplicated Values:** 0
-- **Null Values:** {'Driver': 0, 'LapTime': 0, 'LapNumber': 0, 'Stint': 0, 'PitOutTime': 1120, 'PitInTime': 1119, 'Sector1Time': 20, 'Sector2Time': 0, 'Sector3Time': 0, 'IsPersonalBest': 0, 'Compound': 0, 'TyreLife': 0, 'FreshTyre': 0, 'Team': 0, 'TrackStatus': 0, 'Position': 0, 'Deleted': 1157, 'DeletedReason': 0, 'IsAccurate': 0, 'MissingSector1': 0, 'MissingSector2': 0, 'MissingSector3': 0, 'IsInLap': 0, 'IsOutLap': 0, 'TrackData': 0}
+- **Null Values:** {'Driver': 0, 'LapTime': 0, 'LapNumber': 0, 'Stint': 0, 'PitOutTime': 1120, 'PitInTime': 1119, 'Sector1Time': 20, 'Sector2Time': 0, 'Sector3Time': 0, 'SpeedI1': 0, 'SpeedI2': 0, 'SpeedFL': 38, 'SpeedST': 0, 'IsPersonalBest': 0, 'Compound': 0, 'TyreLife': 0, 'FreshTyre': 0, 'Team': 0, 'LapStartTime': 0, 'TrackStatus': 0, 'Position': 0, 'Deleted': 1157, 'DeletedReason': 0, 'IsAccurate': 0, 'MissingSector1': 0, 'MissingSector2': 0, 'MissingSector3': 0, 'IsInLap': 0, 'IsOutLap': 0, 'TrackData': 0}
 
 ### Telemetry - Before
 - **Number of rows:** 802189
@@ -806,10 +806,10 @@
 
 ### Laps - After
 - **Number of rows:** 943
-- **Number of columns:** 25
-- **Columns:** ['Driver', 'LapTime', 'LapNumber', 'Stint', 'PitOutTime', 'PitInTime', 'Sector1Time', 'Sector2Time', 'Sector3Time', 'IsPersonalBest', 'Compound', 'TyreLife', 'FreshTyre', 'Team', 'TrackStatus', 'Position', 'Deleted', 'DeletedReason', 'IsAccurate', 'MissingSector1', 'MissingSector2', 'MissingSector3', 'IsInLap', 'IsOutLap', 'TrackData']
+- **Number of columns:** 30
+- **Columns:** ['Driver', 'LapTime', 'LapNumber', 'Stint', 'PitOutTime', 'PitInTime', 'Sector1Time', 'Sector2Time', 'Sector3Time', 'SpeedI1', 'SpeedI2', 'SpeedFL', 'SpeedST', 'IsPersonalBest', 'Compound', 'TyreLife', 'FreshTyre', 'Team', 'LapStartTime', 'TrackStatus', 'Position', 'Deleted', 'DeletedReason', 'IsAccurate', 'MissingSector1', 'MissingSector2', 'MissingSector3', 'IsInLap', 'IsOutLap', 'TrackData']
 - **Duplicated Values:** 0
-- **Null Values:** {'Driver': 0, 'LapTime': 19, 'LapNumber': 0, 'Stint': 0, 'PitOutTime': 919, 'PitInTime': 918, 'Sector1Time': 21, 'Sector2Time': 1, 'Sector3Time': 1, 'IsPersonalBest': 0, 'Compound': 0, 'TyreLife': 0, 'FreshTyre': 0, 'Team': 0, 'TrackStatus': 0, 'Position': 1, 'Deleted': 943, 'DeletedReason': 1, 'IsAccurate': 0, 'MissingSector1': 0, 'MissingSector2': 0, 'MissingSector3': 0, 'IsInLap': 0, 'IsOutLap': 0, 'TrackData': 0}
+- **Null Values:** {'Driver': 0, 'LapTime': 19, 'LapNumber': 0, 'Stint': 0, 'PitOutTime': 919, 'PitInTime': 918, 'Sector1Time': 21, 'Sector2Time': 1, 'Sector3Time': 1, 'SpeedI1': 1, 'SpeedI2': 1, 'SpeedFL': 26, 'SpeedST': 1, 'IsPersonalBest': 0, 'Compound': 0, 'TyreLife': 0, 'FreshTyre': 0, 'Team': 0, 'LapStartTime': 0, 'TrackStatus': 0, 'Position': 1, 'Deleted': 943, 'DeletedReason': 1, 'IsAccurate': 0, 'MissingSector1': 0, 'MissingSector2': 0, 'MissingSector3': 0, 'IsInLap': 0, 'IsOutLap': 0, 'TrackData': 0}
 
 ### Telemetry - Before
 - **Number of rows:** 705586
@@ -863,10 +863,10 @@
 
 ### Laps - After
 - **Number of rows:** 1003
-- **Number of columns:** 25
-- **Columns:** ['Driver', 'LapTime', 'LapNumber', 'Stint', 'PitOutTime', 'PitInTime', 'Sector1Time', 'Sector2Time', 'Sector3Time', 'IsPersonalBest', 'Compound', 'TyreLife', 'FreshTyre', 'Team', 'TrackStatus', 'Position', 'Deleted', 'DeletedReason', 'IsAccurate', 'MissingSector1', 'MissingSector2', 'MissingSector3', 'IsInLap', 'IsOutLap', 'TrackData']
+- **Number of columns:** 30
+- **Columns:** ['Driver', 'LapTime', 'LapNumber', 'Stint', 'PitOutTime', 'PitInTime', 'Sector1Time', 'Sector2Time', 'Sector3Time', 'SpeedI1', 'SpeedI2', 'SpeedFL', 'SpeedST', 'IsPersonalBest', 'Compound', 'TyreLife', 'FreshTyre', 'Team', 'LapStartTime', 'TrackStatus', 'Position', 'Deleted', 'DeletedReason', 'IsAccurate', 'MissingSector1', 'MissingSector2', 'MissingSector3', 'IsInLap', 'IsOutLap', 'TrackData']
 - **Duplicated Values:** 0
-- **Null Values:** {'Driver': 0, 'LapTime': 102, 'LapNumber': 0, 'Stint': 0, 'PitOutTime': 936, 'PitInTime': 938, 'Sector1Time': 35, 'Sector2Time': 8, 'Sector3Time': 71, 'IsPersonalBest': 0, 'Compound': 0, 'TyreLife': 0, 'FreshTyre': 0, 'Team': 0, 'TrackStatus': 0, 'Position': 8, 'Deleted': 1003, 'DeletedReason': 7, 'IsAccurate': 0, 'MissingSector1': 0, 'MissingSector2': 0, 'MissingSector3': 0, 'IsInLap': 0, 'IsOutLap': 0, 'TrackData': 0}
+- **Null Values:** {'Driver': 0, 'LapTime': 102, 'LapNumber': 0, 'Stint': 0, 'PitOutTime': 936, 'PitInTime': 938, 'Sector1Time': 35, 'Sector2Time': 8, 'Sector3Time': 71, 'SpeedI1': 8, 'SpeedI2': 8, 'SpeedFL': 73, 'SpeedST': 8, 'IsPersonalBest': 0, 'Compound': 0, 'TyreLife': 0, 'FreshTyre': 0, 'Team': 0, 'LapStartTime': 0, 'TrackStatus': 0, 'Position': 8, 'Deleted': 1003, 'DeletedReason': 7, 'IsAccurate': 0, 'MissingSector1': 0, 'MissingSector2': 0, 'MissingSector3': 0, 'IsInLap': 0, 'IsOutLap': 0, 'TrackData': 0}
 
 ### Telemetry - Before
 - **Number of rows:** 1100058
@@ -920,10 +920,10 @@
 
 ### Laps - After
 - **Number of rows:** 962
-- **Number of columns:** 25
-- **Columns:** ['Driver', 'LapTime', 'LapNumber', 'Stint', 'PitOutTime', 'PitInTime', 'Sector1Time', 'Sector2Time', 'Sector3Time', 'IsPersonalBest', 'Compound', 'TyreLife', 'FreshTyre', 'Team', 'TrackStatus', 'Position', 'Deleted', 'DeletedReason', 'IsAccurate', 'MissingSector1', 'MissingSector2', 'MissingSector3', 'IsInLap', 'IsOutLap', 'TrackData']
+- **Number of columns:** 30
+- **Columns:** ['Driver', 'LapTime', 'LapNumber', 'Stint', 'PitOutTime', 'PitInTime', 'Sector1Time', 'Sector2Time', 'Sector3Time', 'SpeedI1', 'SpeedI2', 'SpeedFL', 'SpeedST', 'IsPersonalBest', 'Compound', 'TyreLife', 'FreshTyre', 'Team', 'LapStartTime', 'TrackStatus', 'Position', 'Deleted', 'DeletedReason', 'IsAccurate', 'MissingSector1', 'MissingSector2', 'MissingSector3', 'IsInLap', 'IsOutLap', 'TrackData']
 - **Duplicated Values:** 0
-- **Null Values:** {'Driver': 0, 'LapTime': 32, 'LapNumber': 0, 'Stint': 0, 'PitOutTime': 937, 'PitInTime': 938, 'Sector1Time': 21, 'Sector2Time': 1, 'Sector3Time': 1, 'IsPersonalBest': 0, 'Compound': 0, 'TyreLife': 0, 'FreshTyre': 0, 'Team': 0, 'TrackStatus': 0, 'Position': 1, 'Deleted': 962, 'DeletedReason': 1, 'IsAccurate': 0, 'MissingSector1': 0, 'MissingSector2': 0, 'MissingSector3': 0, 'IsInLap': 0, 'IsOutLap': 0, 'TrackData': 0}
+- **Null Values:** {'Driver': 0, 'LapTime': 32, 'LapNumber': 0, 'Stint': 0, 'PitOutTime': 937, 'PitInTime': 938, 'Sector1Time': 21, 'Sector2Time': 1, 'Sector3Time': 1, 'SpeedI1': 1, 'SpeedI2': 1, 'SpeedFL': 25, 'SpeedST': 1, 'IsPersonalBest': 0, 'Compound': 0, 'TyreLife': 0, 'FreshTyre': 0, 'Team': 0, 'LapStartTime': 0, 'TrackStatus': 0, 'Position': 1, 'Deleted': 962, 'DeletedReason': 1, 'IsAccurate': 0, 'MissingSector1': 0, 'MissingSector2': 0, 'MissingSector3': 0, 'IsInLap': 0, 'IsOutLap': 0, 'TrackData': 0}
 
 ### Telemetry - Before
 - **Number of rows:** 807832
@@ -977,10 +977,10 @@
 
 ### Laps - After
 - **Number of rows:** 1138
-- **Number of columns:** 25
-- **Columns:** ['Driver', 'LapTime', 'LapNumber', 'Stint', 'PitOutTime', 'PitInTime', 'Sector1Time', 'Sector2Time', 'Sector3Time', 'IsPersonalBest', 'Compound', 'TyreLife', 'FreshTyre', 'Team', 'TrackStatus', 'Position', 'Deleted', 'DeletedReason', 'IsAccurate', 'MissingSector1', 'MissingSector2', 'MissingSector3', 'IsInLap', 'IsOutLap', 'TrackData']
+- **Number of columns:** 30
+- **Columns:** ['Driver', 'LapTime', 'LapNumber', 'Stint', 'PitOutTime', 'PitInTime', 'Sector1Time', 'Sector2Time', 'Sector3Time', 'SpeedI1', 'SpeedI2', 'SpeedFL', 'SpeedST', 'IsPersonalBest', 'Compound', 'TyreLife', 'FreshTyre', 'Team', 'LapStartTime', 'TrackStatus', 'Position', 'Deleted', 'DeletedReason', 'IsAccurate', 'MissingSector1', 'MissingSector2', 'MissingSector3', 'IsInLap', 'IsOutLap', 'TrackData']
 - **Duplicated Values:** 0
-- **Null Values:** {'Driver': 0, 'LapTime': 0, 'LapNumber': 0, 'Stint': 0, 'PitOutTime': 1118, 'PitInTime': 1118, 'Sector1Time': 20, 'Sector2Time': 0, 'Sector3Time': 0, 'IsPersonalBest': 0, 'Compound': 0, 'TyreLife': 0, 'FreshTyre': 0, 'Team': 0, 'TrackStatus': 0, 'Position': 0, 'Deleted': 1138, 'DeletedReason': 0, 'IsAccurate': 0, 'MissingSector1': 0, 'MissingSector2': 0, 'MissingSector3': 0, 'IsInLap': 0, 'IsOutLap': 0, 'TrackData': 0}
+- **Null Values:** {'Driver': 0, 'LapTime': 0, 'LapNumber': 0, 'Stint': 0, 'PitOutTime': 1118, 'PitInTime': 1118, 'Sector1Time': 20, 'Sector2Time': 0, 'Sector3Time': 0, 'SpeedI1': 0, 'SpeedI2': 0, 'SpeedFL': 20, 'SpeedST': 0, 'IsPersonalBest': 0, 'Compound': 0, 'TyreLife': 0, 'FreshTyre': 0, 'Team': 0, 'LapStartTime': 0, 'TrackStatus': 0, 'Position': 0, 'Deleted': 1138, 'DeletedReason': 0, 'IsAccurate': 0, 'MissingSector1': 0, 'MissingSector2': 0, 'MissingSector3': 0, 'IsInLap': 0, 'IsOutLap': 0, 'TrackData': 0}
 
 ### Telemetry - Before
 - **Number of rows:** 816234
@@ -1034,10 +1034,10 @@
 
 ### Laps - After
 - **Number of rows:** 1515
-- **Number of columns:** 25
-- **Columns:** ['Driver', 'LapTime', 'LapNumber', 'Stint', 'PitOutTime', 'PitInTime', 'Sector1Time', 'Sector2Time', 'Sector3Time', 'IsPersonalBest', 'Compound', 'TyreLife', 'FreshTyre', 'Team', 'TrackStatus', 'Position', 'Deleted', 'DeletedReason', 'IsAccurate', 'MissingSector1', 'MissingSector2', 'MissingSector3', 'IsInLap', 'IsOutLap', 'TrackData']
+- **Number of columns:** 30
+- **Columns:** ['Driver', 'LapTime', 'LapNumber', 'Stint', 'PitOutTime', 'PitInTime', 'Sector1Time', 'Sector2Time', 'Sector3Time', 'SpeedI1', 'SpeedI2', 'SpeedFL', 'SpeedST', 'IsPersonalBest', 'Compound', 'TyreLife', 'FreshTyre', 'Team', 'LapStartTime', 'TrackStatus', 'Position', 'Deleted', 'DeletedReason', 'IsAccurate', 'MissingSector1', 'MissingSector2', 'MissingSector3', 'IsInLap', 'IsOutLap', 'TrackData']
 - **Duplicated Values:** 0
-- **Null Values:** {'Driver': 0, 'LapTime': 3, 'LapNumber': 0, 'Stint': 0, 'PitOutTime': 1478, 'PitInTime': 1477, 'Sector1Time': 21, 'Sector2Time': 1, 'Sector3Time': 2, 'IsPersonalBest': 0, 'Compound': 0, 'TyreLife': 0, 'FreshTyre': 0, 'Team': 0, 'TrackStatus': 0, 'Position': 1, 'Deleted': 1515, 'DeletedReason': 1, 'IsAccurate': 0, 'MissingSector1': 0, 'MissingSector2': 0, 'MissingSector3': 0, 'IsInLap': 0, 'IsOutLap': 0, 'TrackData': 0}
+- **Null Values:** {'Driver': 0, 'LapTime': 3, 'LapNumber': 0, 'Stint': 0, 'PitOutTime': 1478, 'PitInTime': 1477, 'Sector1Time': 21, 'Sector2Time': 1, 'Sector3Time': 2, 'SpeedI1': 1, 'SpeedI2': 1, 'SpeedFL': 39, 'SpeedST': 1, 'IsPersonalBest': 0, 'Compound': 0, 'TyreLife': 0, 'FreshTyre': 0, 'Team': 0, 'LapStartTime': 0, 'TrackStatus': 0, 'Position': 1, 'Deleted': 1515, 'DeletedReason': 1, 'IsAccurate': 0, 'MissingSector1': 0, 'MissingSector2': 0, 'MissingSector3': 0, 'IsInLap': 0, 'IsOutLap': 0, 'TrackData': 0}
 
 ### Telemetry - Before
 - **Number of rows:** 986225
@@ -1091,10 +1091,10 @@
 
 ### Laps - After
 - **Number of rows:** 1312
-- **Number of columns:** 25
-- **Columns:** ['Driver', 'LapTime', 'LapNumber', 'Stint', 'PitOutTime', 'PitInTime', 'Sector1Time', 'Sector2Time', 'Sector3Time', 'IsPersonalBest', 'Compound', 'TyreLife', 'FreshTyre', 'Team', 'TrackStatus', 'Position', 'Deleted', 'DeletedReason', 'IsAccurate', 'MissingSector1', 'MissingSector2', 'MissingSector3', 'IsInLap', 'IsOutLap', 'TrackData']
+- **Number of columns:** 30
+- **Columns:** ['Driver', 'LapTime', 'LapNumber', 'Stint', 'PitOutTime', 'PitInTime', 'Sector1Time', 'Sector2Time', 'Sector3Time', 'SpeedI1', 'SpeedI2', 'SpeedFL', 'SpeedST', 'IsPersonalBest', 'Compound', 'TyreLife', 'FreshTyre', 'Team', 'LapStartTime', 'TrackStatus', 'Position', 'Deleted', 'DeletedReason', 'IsAccurate', 'MissingSector1', 'MissingSector2', 'MissingSector3', 'IsInLap', 'IsOutLap', 'TrackData']
 - **Duplicated Values:** 0
-- **Null Values:** {'Driver': 0, 'LapTime': 0, 'LapNumber': 0, 'Stint': 0, 'PitOutTime': 1267, 'PitInTime': 1269, 'Sector1Time': 20, 'Sector2Time': 0, 'Sector3Time': 0, 'IsPersonalBest': 0, 'Compound': 0, 'TyreLife': 0, 'FreshTyre': 0, 'Team': 0, 'TrackStatus': 0, 'Position': 0, 'Deleted': 1312, 'DeletedReason': 0, 'IsAccurate': 0, 'MissingSector1': 0, 'MissingSector2': 0, 'MissingSector3': 0, 'IsInLap': 0, 'IsOutLap': 0, 'TrackData': 0}
+- **Null Values:** {'Driver': 0, 'LapTime': 0, 'LapNumber': 0, 'Stint': 0, 'PitOutTime': 1267, 'PitInTime': 1269, 'Sector1Time': 20, 'Sector2Time': 0, 'Sector3Time': 0, 'SpeedI1': 0, 'SpeedI2': 0, 'SpeedFL': 43, 'SpeedST': 0, 'IsPersonalBest': 0, 'Compound': 0, 'TyreLife': 0, 'FreshTyre': 0, 'Team': 0, 'LapStartTime': 0, 'TrackStatus': 0, 'Position': 0, 'Deleted': 1312, 'DeletedReason': 0, 'IsAccurate': 0, 'MissingSector1': 0, 'MissingSector2': 0, 'MissingSector3': 0, 'IsInLap': 0, 'IsOutLap': 0, 'TrackData': 0}
 
 ### Telemetry - Before
 - **Number of rows:** 815048
@@ -1148,10 +1148,10 @@
 
 ### Laps - After
 - **Number of rows:** 1317
-- **Number of columns:** 25
-- **Columns:** ['Driver', 'LapTime', 'LapNumber', 'Stint', 'PitOutTime', 'PitInTime', 'Sector1Time', 'Sector2Time', 'Sector3Time', 'IsPersonalBest', 'Compound', 'TyreLife', 'FreshTyre', 'Team', 'TrackStatus', 'Position', 'Deleted', 'DeletedReason', 'IsAccurate', 'MissingSector1', 'MissingSector2', 'MissingSector3', 'IsInLap', 'IsOutLap', 'TrackData']
+- **Number of columns:** 30
+- **Columns:** ['Driver', 'LapTime', 'LapNumber', 'Stint', 'PitOutTime', 'PitInTime', 'Sector1Time', 'Sector2Time', 'Sector3Time', 'SpeedI1', 'SpeedI2', 'SpeedFL', 'SpeedST', 'IsPersonalBest', 'Compound', 'TyreLife', 'FreshTyre', 'Team', 'LapStartTime', 'TrackStatus', 'Position', 'Deleted', 'DeletedReason', 'IsAccurate', 'MissingSector1', 'MissingSector2', 'MissingSector3', 'IsInLap', 'IsOutLap', 'TrackData']
 - **Duplicated Values:** 0
-- **Null Values:** {'Driver': 0, 'LapTime': 3, 'LapNumber': 0, 'Stint': 0, 'PitOutTime': 1284, 'PitInTime': 1283, 'Sector1Time': 21, 'Sector2Time': 1, 'Sector3Time': 3, 'IsPersonalBest': 0, 'Compound': 0, 'TyreLife': 0, 'FreshTyre': 0, 'Team': 0, 'TrackStatus': 0, 'Position': 1, 'Deleted': 1317, 'DeletedReason': 1, 'IsAccurate': 0, 'MissingSector1': 0, 'MissingSector2': 0, 'MissingSector3': 0, 'IsInLap': 0, 'IsOutLap': 0, 'TrackData': 0}
+- **Null Values:** {'Driver': 0, 'LapTime': 3, 'LapNumber': 0, 'Stint': 0, 'PitOutTime': 1284, 'PitInTime': 1283, 'Sector1Time': 21, 'Sector2Time': 1, 'Sector3Time': 3, 'SpeedI1': 1, 'SpeedI2': 1, 'SpeedFL': 35, 'SpeedST': 1, 'IsPersonalBest': 0, 'Compound': 0, 'TyreLife': 0, 'FreshTyre': 0, 'Team': 0, 'LapStartTime': 0, 'TrackStatus': 0, 'Position': 1, 'Deleted': 1317, 'DeletedReason': 1, 'IsAccurate': 0, 'MissingSector1': 0, 'MissingSector2': 0, 'MissingSector3': 0, 'IsInLap': 0, 'IsOutLap': 0, 'TrackData': 0}
 
 ### Telemetry - Before
 - **Number of rows:** 824411
@@ -1205,10 +1205,10 @@
 
 ### Laps - After
 - **Number of rows:** 1354
-- **Number of columns:** 25
-- **Columns:** ['Driver', 'LapTime', 'LapNumber', 'Stint', 'PitOutTime', 'PitInTime', 'Sector1Time', 'Sector2Time', 'Sector3Time', 'IsPersonalBest', 'Compound', 'TyreLife', 'FreshTyre', 'Team', 'TrackStatus', 'Position', 'Deleted', 'DeletedReason', 'IsAccurate', 'MissingSector1', 'MissingSector2', 'MissingSector3', 'IsInLap', 'IsOutLap', 'TrackData']
+- **Number of columns:** 30
+- **Columns:** ['Driver', 'LapTime', 'LapNumber', 'Stint', 'PitOutTime', 'PitInTime', 'Sector1Time', 'Sector2Time', 'Sector3Time', 'SpeedI1', 'SpeedI2', 'SpeedFL', 'SpeedST', 'IsPersonalBest', 'Compound', 'TyreLife', 'FreshTyre', 'Team', 'LapStartTime', 'TrackStatus', 'Position', 'Deleted', 'DeletedReason', 'IsAccurate', 'MissingSector1', 'MissingSector2', 'MissingSector3', 'IsInLap', 'IsOutLap', 'TrackData']
 - **Duplicated Values:** 0
-- **Null Values:** {'Driver': 0, 'LapTime': 2, 'LapNumber': 0, 'Stint': 0, 'PitOutTime': 1289, 'PitInTime': 1291, 'Sector1Time': 21, 'Sector2Time': 2, 'Sector3Time': 1, 'IsPersonalBest': 0, 'Compound': 0, 'TyreLife': 0, 'FreshTyre': 0, 'Team': 0, 'TrackStatus': 0, 'Position': 1, 'Deleted': 1354, 'DeletedReason': 1, 'IsAccurate': 0, 'MissingSector1': 0, 'MissingSector2': 0, 'MissingSector3': 0, 'IsInLap': 0, 'IsOutLap': 0, 'TrackData': 0}
+- **Null Values:** {'Driver': 0, 'LapTime': 2, 'LapNumber': 0, 'Stint': 0, 'PitOutTime': 1289, 'PitInTime': 1291, 'Sector1Time': 21, 'Sector2Time': 2, 'Sector3Time': 1, 'SpeedI1': 1, 'SpeedI2': 1, 'SpeedFL': 64, 'SpeedST': 1, 'IsPersonalBest': 0, 'Compound': 0, 'TyreLife': 0, 'FreshTyre': 0, 'Team': 0, 'LapStartTime': 0, 'TrackStatus': 0, 'Position': 1, 'Deleted': 1354, 'DeletedReason': 1, 'IsAccurate': 0, 'MissingSector1': 0, 'MissingSector2': 0, 'MissingSector3': 0, 'IsInLap': 0, 'IsOutLap': 0, 'TrackData': 0}
 
 ### Telemetry - Before
 - **Number of rows:** 755019

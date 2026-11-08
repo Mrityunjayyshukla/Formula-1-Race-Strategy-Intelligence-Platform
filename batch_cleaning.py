@@ -279,6 +279,7 @@ class Result(F1):
         self.df = self.df.drop(["LastName"], axis=1)
         return self.df
 
+# --------------------------------------------------------------------
 directory_folder = "f1_parquet_data"
 for file_path in Path(directory_folder).glob("2025/Round_*/R"):
     paths, lap_df, tele_df, weather_df, results_df = load_session_data(file_path)
@@ -300,13 +301,14 @@ for file_path in Path(directory_folder).glob("2025/Round_*/R"):
         filename=f"{year} Season Details",
     )
 
-    lap_drop = ["Time", "DriverNumber", "Sector1SessionTime", "Sector2SessionTime", "Sector3SessionTime", "SpeedI1", "SpeedI2", "SpeedFL", "SpeedST", "LapStartTime", "LapStartDate", "FastF1Generated"]
+    lap_drop = ["Time", "DriverNumber", "Sector1SessionTime", "Sector2SessionTime", "Sector3SessionTime", "LapStartDate", "FastF1Generated"]
     f1_laps.drop_columns(lap_drop)
     f1_laps.drop_duplicates()
     f1_laps.driver_name_standard()
 
     columnToNumeric = ["LapTime", "Sector1Time", "Sector2Time", "Sector3Time", 'PitInTime', 'PitOutTime']
     f1_laps.time_to_numeric(columnToNumeric)
+    f1_laps.timestamp_format(['LapStartTime'])
     exist_columns = ["Sector1Time", "Sector2Time", "Sector3Time"]
     new_columns = ["MissingSector1", "MissingSector2", "MissingSector3"]
     f1_laps.flag_columns(exist_columns=exist_columns, new_columns=new_columns)
