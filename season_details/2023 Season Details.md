@@ -1593,4 +1593,3 @@
 - **Columns:** ['DriverNumber', 'DriverId', 'TeamName', 'TeamColor', 'TeamId', 'FullName', 'Position', 'GridPosition', 'Time', 'Status', 'Points', 'Laps', 'RaceOutcome']
 - **Duplicated Values:** 0
 - **Null Values:** {'DriverNumber': 0, 'DriverId': 0, 'TeamName': 0, 'TeamColor': 0, 'TeamId': 0, 'FullName': 0, 'Position': 0, 'GridPosition': 0, 'Time': 0, 'Status': 0, 'Points': 0, 'Laps': 0, 'RaceOutcome': 0}
-

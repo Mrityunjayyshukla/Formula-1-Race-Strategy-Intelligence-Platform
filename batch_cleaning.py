@@ -361,7 +361,7 @@ for file_path in Path(directory_folder).glob("2025/Round_*/S"):
         bOrF='Telemetry - After',
         filename=f"{year} Season Details",
     )
-    f1_laps.df.to_parquet(f"{file_path}/telemetry_cleaned.parquet", index=False)
+    f1_tele.df.to_parquet(f"{file_path}/telemetry_cleaned.parquet", index=False)
     print(f"Successfully saved Telemetry for {year} - {round_name}({session_type})")
 
     # Weather Functions --------------------------------------
@@ -404,5 +404,5 @@ for file_path in Path(directory_folder).glob("2025/Round_*/S"):
         filename=f"{year} Season Details",
     )
 
-    f1_laps.df.to_parquet(f"{file_path}/results_cleaned.parquet", index=False)
+    f1_res.df.to_parquet(f"{file_path}/results_cleaned.parquet", index=False)
     print(f"Successfully saved Results for {year} - {round_name}({session_type})")
