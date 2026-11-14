@@ -414,3 +414,195 @@ agg_circuit_compound
 These aggregate tabkes will make feature engineering stage must faster.
 
 ---
+## 11. Define the relationships
+The primary relationships should be:
+```
+dim_circuit
+    1
+    └── many dim_event
+            1
+            └── many dim_session
+                    ├── many fact_lap
+                    ├── many fact_result
+                    ├── many fact_weather
+                    ├── many fact_telemetry
+                    └── many fact_stint
+```
+
+The Driver and constructor relationships:
+```
+dim_driver
+    ├── many fact_lap
+    ├── many fact_result
+    ├── many fact_telemetry
+    └── many fact_stint
+```
+```
+dim_constructor
+    ├── many fact_lap
+    ├── many fact_result
+    └── many fact_stint
+```
+Lap to telemetry relationship:
+```
+fact_lap
+    └── many fact_telemetry
+```
+----
+
+## 12. Handle team changes correctly
+Do not store current team permanently inside dim_driver.\
+For example, the same driver may represent different constructors in different seasons. Constructor association should be stored in fact table because it relates to driver's participation in that specific season.\
+\
+Use:
+```
+fact_lap.driver_id
+fact_lap.constructor_id
+fact_lap.session_id
+```
+
+*Optional:* In case, more formal historical tracking, create `bridge_driver_constructor` with the columns:
+```
+driver_id
+constructor_id
+season
+valid_from
+valid_to
+```
+This is effectively a historical driver team association table.
+
+---
+
+## 13. Build the transformation sequence
+Run the transformations in the order:
+### Step 1: Read all cleaned parquet files
+Read the files recursively and classify them by:
+```
+season
+event
+round
+session
+dataset_type
+```
+The filepath should supply these values only if they are missing from files itself.
+
+### Step 2: Create dimensions
+Build and deduplicate:
+```
+dim_driver
+dim_constructor
+dim_circuit
+dim_event
+dim_session
+```
+
+### Step 3: Generate stable keys
+Apply the same key-generation logic across every file.\
+For example, the same Austrian GP Race must receive the same `session_id` in:
+- Laps
+- Results
+- Weather
+- Telemetry
+
+### Step 4: Create Fact tables
+Transform the cleaned files into:
+```
+fact_lap
+fact_result
+fact_weather
+fact_telemetry
+```
+
+### Step 5: Create derived facts
+- fact_stint
+- bridge_lap_weather
+
+### Step 6: Create aggregate tables
+```
+agg_lap_telemetry
+agg_driver_session
+agg_constructor_race
+```
+
+### Step 7: Validate the model
+Run data quality tests before publishing the Gold tables.
+
+### Step 8: Write modelled Parquet files
+Use columnar compression such as Snappy or Zstandard and partition high-volume tables appropriately.
+
+## 14. Add data-model quality checks
+Your model should fail or quarantine records when these conditions are violated:
+### Primary key checks
+- dim_driver.driver_id must be unique
+- dim_session.session_id must be unique
+- fact_lap.lap_id must be unique
+### Referential integrity checks
+- Every fact_lap.driver_id must exist in dim_driver
+- Every fact_lap.session_id must exist in dim_session
+- Every fact_resul.driver_id must exis in dim_driver
+- Every telemetry lap_id must exist in fact_lap, where lap assignment is available.
+### Grain checks
+No duplicate:
+- session_id + driver_id + lap_number
+- session_id + driver_id + timestamp
+
+If telemetry may legitimately contain repeated timestamps, include an additional sequence or source index rather than silently deleting records.
+### Cardinality checks
+Example:
+- One race result row per driver per session
+- Many telemetry rows per lap
+- Many laps per driver per session
+### Orphan Record report
+Produce a report such as:
+- orphan_lap_driver_count
+- orphan_result_session_count
+- orphan_telemetry_lap_count
+- duplicate_lap_key_count
+- duplicate_result_key_count
+
+These records that fail should be written to - `gold/quarantine/` instead of disappearing silently.
+
+## 15. Recommended Final Gold layer
+```
+gold/
+├── dimensions/
+│       ├── dim_driver.parquet
+│       ├── dim_constructor.parquet
+│       ├── dim_circuit.parquet
+│       ├── dim_event.parquet
+│       └── dim_session.parquet
+│
+├── facts/
+│       ├── fact_lap/
+│       ├── fact_result/
+│       ├── fact_weather/
+│       ├── fact_telemetry/
+│       └── fact_stint/
+│
+├── bridges/
+│       ├── bridge_lap_weather/
+│       └── bridge_driver_constructor/
+│
+├── aggregates/
+│       ├── agg_lap_telemetry/
+│       ├── agg_driver_session/
+│       └── agg_constructor_race/
+│
+├── quality/
+│       ├── model_quality_summary.parquet
+│       ├── referential_integrity_report.parquet
+│       └── duplicate_key_report.parquet
+│
+└── quarantine/
+            ├── orphan_records/
+            └── duplicate_records/
+```
+
+## Outcome
+At the end of phase 4, following questions can be answered:\
+1. What was a driver's average clean-air pace in a race?
+2. How did lap time change with tyre age?
+3. Which compound produced lowest degradation at each circuit?
+4. How did track temperature affect tyre performance?
+5. How much time did a driver gain or lose after a pit stop?
+6. Which telemetry characteristics explain sector time difference.
