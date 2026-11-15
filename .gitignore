@@ -5,3 +5,4 @@ cache_data/
 combined_profile_report.html
 py_testing.py
 f1_cleaned_data/
+f1_gold_data/
