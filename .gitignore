@@ -4,3 +4,4 @@ f1_parquet_data/
 cache_data/
 combined_profile_report.html
 py_testing.py
+f1_cleaned_data/

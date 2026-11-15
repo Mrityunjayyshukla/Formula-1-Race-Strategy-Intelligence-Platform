@@ -281,13 +281,17 @@ class Result(F1):
 
 # --------------------------------------------------------------------
 directory_folder = "f1_parquet_data"
-for file_path in Path(directory_folder).glob("2025/Round_*/S"):
+save_folder = "f1_cleaned_data"
+for file_path in Path(directory_folder).glob("202*/Round_*/*"):
     paths, lap_df, tele_df, weather_df, results_df = load_session_data(file_path)
     year = file_path.parts[-3]
     round_folder = file_path.parts[-2]
     round_name = " ".join(round_folder.split("_")[2:])
     round_number = "".join(round_folder.split("_")[1])
     session_type = "Race" if file_path.parts[-1] == "R" else "Sprint"
+
+    cleaned_round_name = "_".join(round_folder.split("_")[2:])
+    save_location = f"{save_folder}/{year}/Round_{round_number}_{cleaned_round_name}/{file_path.parts[-1]}"
 
     md_path = f"season_details/{year} Season Details.md"
     file_exist = os.path.exists(md_path)
@@ -329,7 +333,8 @@ for file_path in Path(directory_folder).glob("2025/Round_*/S"):
         bOrF="Laps - After",
         filename=f"{year} Season Details",
     )
-    f1_laps.df.to_parquet(f"{file_path}/laps_cleaned.parquet", index=False)
+    os.makedirs(save_location, exist_ok=True)
+    f1_laps.df.to_parquet(f"{save_location}/laps_cleaned.parquet", index=False)
     print(f"Successfully saved Laps for {year} - {round_name}({session_type})")
 
     # Telemetry functions --------------------------------------
@@ -361,7 +366,8 @@ for file_path in Path(directory_folder).glob("2025/Round_*/S"):
         bOrF='Telemetry - After',
         filename=f"{year} Season Details",
     )
-    f1_tele.df.to_parquet(f"{file_path}/telemetry_cleaned.parquet", index=False)
+    os.makedirs(save_location, exist_ok=True)
+    f1_tele.df.to_parquet(f"{save_location}/telemetry_cleaned.parquet", index=False)
     print(f"Successfully saved Telemetry for {year} - {round_name}({session_type})")
 
     # Weather Functions --------------------------------------
@@ -379,7 +385,8 @@ for file_path in Path(directory_folder).glob("2025/Round_*/S"):
         bOrF='Weather - After',
         filename=f"{year} Season Details",
     )
-    f1_weather.df.to_parquet(f"{file_path}/weather_cleaned.parquet", index=False)
+    os.makedirs(save_location, exist_ok=True)
+    f1_weather.df.to_parquet(f"{save_location}/weather_cleaned.parquet", index=False)
     print(f"Successfully saved Weather for {year} - {round_name}({session_type})")
 
     # Results Functions --------------------------------------
@@ -389,7 +396,7 @@ for file_path in Path(directory_folder).glob("2025/Round_*/S"):
         filename=f"{year} Season Details",
     )
 
-    res_drop = ["FirstName", "BroadcastName", "Abbreviation", "HeadshotUrl", "CountryCode", "Q1","Q2", "Q3", "ClassifiedPosition"]
+    res_drop = ["FirstName", "BroadcastName", "HeadshotUrl", "Q1","Q2", "Q3", "ClassifiedPosition"]
     f1_res.drop_columns(res_drop)
     f1_res.changing_driverId()
 
@@ -403,6 +410,6 @@ for file_path in Path(directory_folder).glob("2025/Round_*/S"):
         bOrF='Results - After',
         filename=f"{year} Season Details",
     )
-
-    f1_res.df.to_parquet(f"{file_path}/results_cleaned.parquet", index=False)
+    os.makedirs(save_location, exist_ok=True)
+    f1_res.df.to_parquet(f"{save_location}/results_cleaned.parquet", index=False)
     print(f"Successfully saved Results for {year} - {round_name}({session_type})")
